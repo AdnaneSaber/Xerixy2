@@ -1,0 +1,13 @@
+- Get active view and style it on navbar @done
+- Get active view and style it on footer
+- create account for SAMS CMS no reply, and use it on the back end to send a main to the user @done
+- create the chat app:
+- - Limit the chat room to a user and a staff.
+- - Let the client decide to get alerted by mail if a client needs help on live chat.
+- - make application mobile for talking to users
+- Create an interface for superuser to create a website using the cms
+- - let him select a theme
+- - let him fill variables of colors he wants
+- - apply colors and show preview on the choosen theme
+- - search for images from the theme and put them on the preview
+- push the prototype cms before starting to edit

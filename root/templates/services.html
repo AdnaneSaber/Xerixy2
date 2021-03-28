@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+<title>Nos services</title>
+{% endblock %}
+{% block content %}
+<h1 class="text-center">this is the service page</h1>
+
+<div class="row m-0">
+    {% for service in services %}
+    <div class="card mb-3 col-md-4 mx-auto">
+        <img src="{% static service.service_image %}" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{service.service_title}}</h5>
+            <p class="card-text">{{service.service_content}}</p>
+            <a href="{{service.service_url}}">Lire plus</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
