@@ -1,6 +1,8 @@
 from django.contrib import admin
-from root.models import Gallery, Service, UserInfos, seoLinks, Leads
+from root.models import Gallery, Service, UserInfo, seoLink, Lead, New, phoneClick
 # Register your models here.
+
+admin.site.site_header = 'Xerisy Admin'
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -12,10 +14,15 @@ class ServiceAdmin(admin.ModelAdmin):
     thumbnail_preview.allow_tags = True
 
 
+class NewAdmin(admin.ModelAdmin):
+    list_display = ['post_title', 'post_url']
+    readonly_fields = ["post_url", ]
+
+
 class UserInfosAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # if there's already an entry, do not allow adding
-        count = UserInfos.objects.all().count()
+        count = UserInfo.objects.all().count()
         if count == 0:
             return True
 
@@ -47,7 +54,9 @@ class LeadsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Gallery, GalleryAdmin)
-admin.site.register(Leads, LeadsAdmin)
-admin.site.register(UserInfos, UserInfosAdmin)
+admin.site.register(New, NewAdmin)
+admin.site.register(phoneClick)
+admin.site.register(Lead, LeadsAdmin)
+admin.site.register(UserInfo, UserInfosAdmin)
 admin.site.register(Service, ServiceAdmin)
-admin.site.register(seoLinks, seoLinksAdmin)
+admin.site.register(seoLink, seoLinksAdmin)

@@ -1,8 +1,0 @@
-.navbar-nav li:hover .dropdown-menu,
-.dropdown-menu:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu {
-    margin-top: -2px;
-}

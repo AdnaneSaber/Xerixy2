@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+
+
+{% block metaT %}
+<meta name="title" content="{{service.service_meta_title}}">
+{% endblock metaT %}
+{% block metaD %}
+<meta name="description" content="{{service.service_meta_description}}">
+{% endblock metaD %}
+
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/services.css' %}">
 <title>{{service.service_title}}</title>
@@ -9,15 +19,13 @@
 <h1 class="text-center">{{service.service_title}}</h1>
 
 <div class="row m-0">
-    {% for service in service %}
     <div class="card mb-3 col-md-4 mx-auto">
-        <img src="{% static service.service_image %}" class="card-img-top" alt="">
+        <img src="{% static service.service_image %}" class="card-img-top" alt="{% static service.service_image_alt %}">
         <div class="card-body">
             <h5 class="card-title">{{service.service_title}}</h5>
             <p class="card-text">{{service.service_content}}</p>
-            <!-- <a href="{{service.service_url}}">Lire plus</a> -->
+            <a href="/services">Retour</a>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

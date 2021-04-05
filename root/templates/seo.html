@@ -9,13 +9,11 @@
 <h1 class="text-center">{{link.title}}</h1>
 
 <div class="row m-0">
-    {% for link in link %}
     <div class="card mb-3 col-md-4 mx-auto">
         <div class="card-body">
             <h5 class="card-title">{{link.title}}</h5>
             <p class="card-text">{{link.content}}</p>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

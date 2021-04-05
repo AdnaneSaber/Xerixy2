@@ -1,0 +1,68 @@
+.navbar-nav li,
+.dropdown-menu {
+  margin-top: -2px;
+}
+
+.navbar-nav li:hover .dropdown-menu,
+.dropdown-menu:hover .dropdown-menu {
+  display: block;
+}
+
+nav {
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #28527A));
+  background: linear-gradient(90deg, transparent 50%, #28527A 50%);
+  position: fixed;
+}
+
+nav .navbar-brand {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav .navbar-brand img {
+  width: 100px;
+  height: auto;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  padding: 20px 0px;
+  margin: 0px 20px;
+  display: inline-block;
+  position: relative;
+  opacity: 0.75;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+  opacity: 1;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover::before {
+  bottom: 10px;
+  opacity: 1;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link::before {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  height: 5px;
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  bottom: 5px;
+  opacity: 0;
+}
+/*# sourceMappingURL=base.css.map */

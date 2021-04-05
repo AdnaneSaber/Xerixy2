@@ -10,4 +10,5 @@
 - - let him fill variables of colors he wants
 - - apply colors and show preview on the choosen theme
 - - search for images from the theme and put them on the preview
-- push the prototype cms before starting to edit
+- push the prototype cms before starting to edit @done
+- add recaptcha after deploy

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<title>{{user.nom_sur_site}}</title>
+{% endblock %}
+{% block content %}
+
+<div class="firstView">
+    <div class="bgDiv"></div>
+    <img src="{% static 'banniere.jpg' %}" alt="">
+    <h2 class="fvtitle">Pas les premiers,<br/>mais les meilleurs</h2>
+    <a href="/services" class="fvLink">Nos services</a>
+</div>
+{% endblock %}

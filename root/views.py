@@ -1,10 +1,13 @@
 from django.core.mail import BadHeaderError, send_mail
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
-from .models import Service, Gallery, seoLinks, UserInfos
+from .models import Service, Gallery, seoLink, UserInfo, New, phoneClick
 from django.conf import settings
 from .forms import ContactForm
+from .serializers import PhoneSerializer
 from datetime import datetime
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 def contact_view(request):
@@ -51,18 +54,20 @@ def contact_view(request):
 def bases():
     gallery = Gallery.objects.all()
     services = Service.objects.all()
-    link_query = seoLinks.objects.all()
-    return {"gallery": gallery, "services": services, "seoLinks": link_query}
+    link_query = seoLink.objects.all()
+    news = New.objects.all()
+    user = UserInfo.objects.first()
+    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'user': user}
 
 
 def index(request):
     context = {"self": "index"}.copy()
     context.update(bases())
-    return render(request, "base.html", context=context)
+    return render(request, "index.html", context=context)
 
 
 def service_view(request, service_url):
-    queryset = Service.objects.filter(service_url=service_url)
+    queryset = Service.objects.get(service_url=service_url)
     context = {"service": queryset}.copy()
     context.update(bases())
     if not queryset:
@@ -76,6 +81,18 @@ def services(request):
     return render(request, "services.html", context=context)
 
 
+def news(request):
+    context = {"self": "news"}.copy()
+    context.update(bases())
+    return render(request, "news.html", context=context)
+
+
+def news(request):
+    context = {"self": "news"}.copy()
+    context.update(bases())
+    return render(request, "news.html", context=context)
+
+
 def gallery_view(request):
     context = {"self": "gallery"}.copy()
     context.update(bases())
@@ -83,9 +100,16 @@ def gallery_view(request):
 
 
 def seoLinks_view(request, link):
-    link_query = seoLinks.objects.filter(url=link)
+    link_query = seoLink.objects.get(url=link)
     context = {"link": link_query}.copy()
     context.update(bases())
     if not link_query:
         raise Http404
     return render(request, "seo.html", context=context)
+
+
+class phoneClick_view(APIView):
+    def get(self, request, *args, **kwargs):
+        clicks = phoneClick.objects.all()
+        serializer = PhoneSerializer(clicks, many=True)
+        return Response(serializer.data)
