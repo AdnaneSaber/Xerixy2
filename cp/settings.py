@@ -29,7 +29,7 @@ SECRET_KEY = '2!ind3w2!&ekxhum7s16m2-l=cvly5^7tjin4btnzp*h1r&i+f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['xerixy.com','www.xerixy.com','localhost','93.188.161.101','127.0.0.1']
 
 
 # Application definition
@@ -127,16 +127,6 @@ EMAIL_HOST_PASSWORD = "Adn123adn"
 # handler404 = 'root.views.handle_404'
 
 
-def create_connection(db_file):
-    try:
-        conn = sqlite3.connect(db_file)
-        return conn
-    except Error as e:
-        print(e)
-
-    return None
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -145,5 +135,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
 STATIC_ROOT = "/var/www/cms/static/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -30,6 +30,9 @@ def faviconGenerator(instance, filename):
                   "static/logo", f'favicon-{s[0]}.png'))
         imag.save(os.path.join(settings.BASE_DIR /
                   "static/logo", f'favicon.ico'))
+    found = os.path.join(settings.BASE_DIR / "static/logo", filename)
+    if os.path.exists(found):
+        os.remove(found)
     return os.path.join(settings.BASE_DIR / "static/logo", filename)
 
 

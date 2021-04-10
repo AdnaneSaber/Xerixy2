@@ -1,14 +1,67 @@
 <!doctype html>
 <html lang="en">
 {% load static %}
+{% load i18n %}
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon links -->
     {% block metaT %}{% endblock metaT %}
     {% block metaD %}{% endblock metaD %}
+    {% comment %} Fonts {% endcomment %}
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: url({% static 'fonts/Montserrat-Light.eot' %});
+            src: url({% static 'fonts/Montserrat-Light.eot?#iefix' %}) format('embedded-opentype'),
+            url({% static 'fonts/Montserrat-Light.woff2' %}) format('woff2'),
+            url({% static 'fonts/Montserrat-Light.woff' %}) format('woff'),
+            url({% static 'fonts/Montserrat-Light.ttf' %}) format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url({% static 'fonts/Montserrat-Regular.eot' %});
+            src: url({% static 'fonts/Montserrat-Regular.eot?#iefix' %}) format('embedded-opentype'),
+            url({% static 'fonts/Montserrat-Regular.woff2' %}) format('woff2'),
+            url({% static 'fonts/Montserrat-Regular.woff' %}) format('woff'),
+            url({% static 'fonts/Montserrat-Regular.ttf' %}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url({% static 'fonts/Montserrat-Black.eot' %});
+            src: url({% static 'fonts/Montserrat-Black.eot?#iefix' %}) format('embedded-opentype'),
+            url({% static 'fonts/Montserrat-Black.woff2' %}) format('woff2'),
+            url({% static 'fonts/Montserrat-Black.woff' %}) format('woff'),
+            url({% static 'fonts/Montserrat-Black.ttf' %}) format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url({% static 'fonts/Montserrat-Bold.eot' %});
+            src: url({% static 'fonts/Montserrat-Bold.eot?#iefix' %}) format('embedded-opentype'),
+            url({% static 'fonts/Montserrat-Bold.woff2' %}) format('woff2'),
+            url({% static 'fonts/Montserrat-Bold.woff' %}) format('woff'),
+            url({% static 'fonts/Montserrat-Bold.ttf' %}) format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    {% comment %} END Fonts {% endcomment %}
+    <!-- End Meta -->
+    <!-- Favicon links -->
     <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{% static 'logo/favicon.ico' %}">
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'logo/favicon-57.png' %}">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'logo/favicon-57.png' %}">
@@ -17,126 +70,60 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{% static 'logo/favicon-120.png' %}">
     <link rel="apple-touch-icon" sizes="144x144" href="{% static 'logo/favicon-144.png' %}">
     <link rel="apple-touch-icon" sizes="152x152" href="{% static 'logo/favicon-152.png' %}">
-    <meta name="application-name" content="ChauffePro">
+    <meta name="application-name" content="">
     <meta name="msapplication-TileImage" content="{% static 'logo/favicon-144.png' %}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <!-- End  Favicon links -->
+    <!-- End Favicon links -->
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- End CSS -->
     {% block title %}
     {% endblock title %}
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="/">
-            <img src="{% static 'logo/logo.png' %}" width="50" height="50" class="d-inline-block align-top"
-                alt="">
-            {{user.nom_sur_site}}
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+    <nav>
+        <div class="logoContainer">
+            <a href="/" class="logo">
+                <img src="{% static 'logo/logo.png' %}" alt="{{user.nom_sur_site}}" title="{{user.nom_sur_site}}" />
+            </a>
+        </div>
+        <button id="navCollapse">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
+                class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512">
+                <path fill="currentColor"
+                    d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+                </path>
+            </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item {% if self == 'index' %}active{% endif %}">
-                    <a class="nav-link" href="/">Accueil</a>
-                </li>
-                {% if services %}
-                <li class="nav-item dropdown {% if self == 'services' %}active{% endif %}">
-                    <div class="btn-group">
-                        <a href="/services" class="nav-link {% if self == 'services' %}active{% endif %}">Nos
-                            services</a>
-                        <div class="dropdown-menu">
-                            {% for service in services %}
-                            <a class="dropdown-item"
-                                href="/services/{{service.service_url}}">{{service.service_title}}</a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </li>
-                {% endif %}
-                {% if gallery %}
-                <li class="nav-item {% if self == 'gallery' %}active{% endif %}">
-                    <a class="nav-link" href="/gallery">Gallery</a>
-                </li>
-                {% endif %}
-                {% if news %}
-                <li class="nav-item {% if self == 'news' %}active{% endif %}">
-                    <a class="nav-link" href="/news">Actualités</a>
-                </li>
-                {% endif %}
-                <li class="nav-item {% if self == 'contact' %}active{% endif %}">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
+        <div class="navLinks" id="navLinks" data-state="uncollapsed">
+            <button id="closeNav">&times;</button>
+            <ul class="navLinksUl">
+                <li class="navLinksItem"><a href="">Home</a></li>
+                <li class="navLinksItem"><a href="">About</a></li>
+                <li class="navLinksItem"><a href="">our mission</a></li>
+                <li class="navLinksItem"><a href="">our team</a></li>
+                <li class="navLinksItem"><a href="">our projects</a></li>
+                <li class="navLinksItem"><a href="">contact</a></li>
             </ul>
         </div>
     </nav>
     {% block content %}
     {% endblock content %}
-    <div class="container-fluid pb-0 mb-0 justify-content-center text-light footer-container">
-        <footer>
-            <div class="row my-5 justify-content-center py-5">
-                <div class="col-11">
-                    <div class="row ">
-                        <div class="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
-                            <h3 class="text-muted mb-md-0 mb-5 bold-text">Pepper.</h3>
-                        </div>
-                        <div class="col-xl-2 col-md-4 col-sm-4 col-12">
-                            <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
-                            <ul class="list-unstyled">
-                                <li><a href="/">Home</a></li>
-                                {% if services %}<li><a href="/services">Nos services</a></li>{% endif %}
-                                {% if gallery %}<li><a href="/gallery">Gallerie</a></li>{% endif %}
-                                {% if news %}<li><a href="/news">Actualités</a></li>{% endif %}
-                                <li><a href="/contact">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-xl-2 col-md-4 col-sm-4 col-12">
-                            <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>Recherche fréquentes</b></h6>
-                            <ul class="list-unstyled">
-                                {% for linkseo in seoLinks %}
-                                <li>
-                                    <a href="/about/{{linkseo.url}}">{{linkseo.title}}</a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-xl-8 col-md-4 col-sm-4 col-auto my-md-0 mt-5 order-sm-1 order-3 align-self-end">
-                            <p class="social text-muted mb-0 pb-0 bold-text"> <span class="mx-2"><i
-                                        class="fa fa-facebook" aria-hidden="true"></i></span> <span class="mx-2"><i
-                                        class="fa fa-linkedin-square" aria-hidden="true"></i></span> <span
-                                    class="mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></span> <span
-                                    class="mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></span> </p><small
-                                class="rights"><span>&#174;</span> Pepper All Rights Reserved.</small>
-                        </div>
-                        <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
-                            <h6 class="mt-55 mt-2 text-muted bold-text"><b>Email</b></h6><small> <span><i
-                                        class="fa fa-envelope" aria-hidden="true"></i></span>{{user.email}}</small>
-                        </div>
-                        <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
-                            <h6 class="text-muted bold-text"><b>Telephone</b></h6><small><span><i
-                                        class="fa fa-phone" aria-hidden="true"></i></span>{{user.phone}}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- lOCATOR :  This renders the location of the logged in user :D  -->
     <script>
-        $.get("https://ipinfo.io", function (response) {
-            console.log(response.city, response.country);
-        }, "jsonp");
+        // jQuery.get("https://ipinfo.io", function (response) {
+        //     console.log(response.city, response.country);
+        // }, "jsonp");
+        // const request = await fetch("https://ipinfo.io/json?token=$TOKEN")
+        // const json = await request.json()
+
+        // console.log(jsonResponse.ip, jsonResponse.country)
     </script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- END LOCATOR -->
+    <script src="{% static 'js/nav.js' %}"></script>
 </body>
 
 </html>
