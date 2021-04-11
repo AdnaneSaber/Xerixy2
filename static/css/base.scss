@@ -26,12 +26,8 @@ nav {
         display: flex;
         justify-content: center;
 
-        @media screen and (max-width:800px) {
-            width: 80%;
-        }
-
         img {
-            width: 100px;
+            width: 70px;
         }
     }
 
@@ -45,6 +41,10 @@ nav {
         @media screen and (max-width:800px) {
             display: flex;
             margin: auto;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         svg {
@@ -65,8 +65,8 @@ nav {
         #closeNav {
             position: absolute;
             display: none;
-            top: 10px;
-            right: 10px;
+            top: 10%;
+            right: 0;
             font-size: 50px;
             color: #fff;
             background-color: transparent;
@@ -120,7 +120,7 @@ nav {
                     font-family: 'Montserrat';
                     color: #fff;
                     text-decoration: none;
-                    font-size: 20px;
+                    font-size: 15px;
                     text-transform: uppercase;
                     font-weight: light;
                 }
