@@ -137,5 +137,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_ROOT = "/var/www/cms/static/"
+STATIC_ROOT = "/home/adn/chauffepro/static/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
