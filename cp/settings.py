@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_rename_app',
     'rest_framework',
     'crispy_forms',
     'root',
@@ -137,5 +136,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_ROOT = "/home/adn/chauffepro/static/"
+STATIC_ROOT = "/home/adn/chauffepro/static_files/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
