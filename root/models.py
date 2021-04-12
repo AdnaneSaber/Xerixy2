@@ -27,9 +27,9 @@ def faviconGenerator(instance, filename):
         imag = imag.resize((s[0], s[1]), Image.ANTIALIAS)
         imgName = urlFormater(instance.logo)
         imag.save(os.path.join(settings.BASE_DIR /
-                  "static/logo", f'favicon-{s[0]}.png'))
+                               "static/logo", f'favicon-{s[0]}.png'))
         imag.save(os.path.join(settings.BASE_DIR /
-                  "static/logo", f'favicon.ico'))
+                               "static/logo", f'favicon.ico'))
     found = os.path.join(settings.BASE_DIR / "static/logo", filename)
     if os.path.exists(found):
         os.remove(found)
@@ -53,6 +53,11 @@ class UserInfo(models.Model):
     def __str__(self):
         return self.email
 
+# I need to make this pages integrate in a 
+# class pages(models.Model):
+#     page_title = models.CharField(max_length=255, blank=False)
+#     page_content = models.TextField(blank=True)
+
 
 class New(models.Model):
     post_title = models.CharField(max_length=255, blank=False)
@@ -62,10 +67,12 @@ class New(models.Model):
     post_image = models.ImageField(
         upload_to=assetSaver, default='/no_image.jpg')
     post_time = models.DateTimeField(auto_now_add=True)
+
     def save(self, *args, **kwargs):
         if not self.post_url:
             self.post_url = urlFormater(self.post_title)
         super().save(*args, **kwargs)
+
     def __str__(self):
         return self.post_title
 

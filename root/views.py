@@ -40,7 +40,7 @@ def contact_view(request):
         _SAMS_
         Have a good day
         """
-        emain_to = UserInfos.objects.first().email
+        emain_to = UserInfo.objects.first().email
         email_from = settings.EMAIL_HOST_USER
         send_mail(subject, messageContent, email_from,
                   [emain_to, ])
