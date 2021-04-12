@@ -24,10 +24,11 @@ def contact_view(request):
         now = datetime.now()
         now = now.strftime("%Y-%m-%d %H:%M:%S")
         subject = f"NEW LEAD at {now}"
+        siteName = context['user'].nom_sur_site
         messageContent = \
             f"""
         Hello Dear client,
-        this is a mail from {context['user'].nom_sur_site}, you just received a lead, I'll let you check it out.
+        this is a mail from {siteName}, you just received a lead, I'll let you check it out.
 
         from : {firstname} {lastname}
         interested by : {interestedBy}
@@ -37,7 +38,7 @@ def contact_view(request):
         --------------------------------------------------------
         Well that was all for today,
         you received this mail at {now}
-        _{context['user'].nom_sur_site}_
+        _{siteName}_
         Have a good day
         """
         emain_to = UserInfo.objects.first().email
