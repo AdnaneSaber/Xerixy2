@@ -28,6 +28,7 @@ SECRET_KEY = '2!ind3w2!&ekxhum7s16m2-l=cvly5^7tjin4btnzp*h1r&i+f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+MAINTENANCE_MODE = True
 
 ALLOWED_HOSTS = ['xerixy.com','www.xerixy.com','localhost','93.188.161.101','127.0.0.1']
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'root',
+    'maintenance_mode',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,9 +55,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'maintenance_mode.middleware.MaintenanceModeMiddleware',
 ]
-
+CONTEXT_PROCESSORS = ['maintenance_mode.context_processors.maintenance_mode']
 ROOT_URLCONF = 'cp.urls'
+
+MIDDLEWARE_CLASSES = ('maintenance_mode.middleware.MaintenanceModeMiddleware',)
 
 TEMPLATES = [
     {

@@ -8,12 +8,15 @@ from .serializers import PhoneSerializer
 from datetime import datetime
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-
+from django.contrib.gis.geoip2 import GeoIP2
+import requests
+import json
 def contact_view(request):
     context = {"self": "contact"}.copy()
     context.update(bases())
     form = ContactForm(request.POST or None, request.FILES or None)
+    location_json = json.loads(requests.get("https://ipinfo.io").text)
+    location = f"{location_json['city']} - {location_json['country']}"
     if form.is_valid():
         firstname = form.cleaned_data.get("firstName")
         lastname = form.cleaned_data.get("lastName")
@@ -35,6 +38,7 @@ def contact_view(request):
         phone number : {phone}
         email : {mail}
         message : {message}
+        location : {location}
         --------------------------------------------------------
         Well that was all for today,
         you received this mail at {now}
