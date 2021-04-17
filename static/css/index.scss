@@ -97,7 +97,8 @@ img {
     width: auto;
     height: 50vh;
     top: calc(100vh + 300px);
-    img{
+
+    img {
         transform: rotateY(180deg);
     }
 }
@@ -174,6 +175,7 @@ img {
                         width: 100%;
                         left: 0;
                     }
+
                     color: #fff;
                 }
 
@@ -181,10 +183,12 @@ img {
                     0% {
                         left: -100%;
                     }
-                    50%{
+
+                    50% {
                         left: 0%;
                     }
-                    100%{
+
+                    100% {
                         left: 100%;
                     }
                 }
@@ -205,6 +209,7 @@ img {
             object-fit: cover;
             filter: grayscale(1);
             transition: .5s ease-in-out;
+
             &:hover {
                 filter: none;
             }

@@ -36,6 +36,9 @@ nav .logoContainer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  height: 90px;
 }
 
 nav .logoContainer img {
@@ -78,6 +81,20 @@ nav .navLinks {
   padding: 20px 0;
   width: 100%;
   position: relative;
+}
+
+nav .navLinks .scrollLogo {
+  width: 0%;
+  overflow: hidden;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+nav .navLinks .scrollLogo img {
+  width: 85px;
+  height: 85px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 nav .navLinks #closeNav {
@@ -162,5 +179,11 @@ nav .navLinks .navLinksUl .navLinksItem a {
   font-size: 15px;
   text-transform: uppercase;
   font-weight: light;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 /*# sourceMappingURL=base.css.map */

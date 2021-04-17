@@ -86,7 +86,7 @@
 </head>
 
 <body>
-    <nav>
+    <nav id="navbar">
         <div class="logoContainer">
             <a href="/" class="logo">
                 <img src="{% static 'logo/logo.png' %}" alt="{{user.nom_sur_site}}" title="{{user.nom_sur_site}}" />
@@ -102,6 +102,11 @@
             </svg>
         </button>
         <div class="navLinks" id="navLinks" data-state="uncollapsed">
+            <div class="scrollLogo">
+                <a href="/" class="logo">
+                    <img src="{% static 'logo/logo.png' %}" alt="{{user.nom_sur_site}}" title="{{user.nom_sur_site}}" />
+                </a>
+            </div>
             <button id="closeNav">&times;</button>
             <ul class="navLinksUl">
                 <li class="navLinksItem"><a href="/">Home</a></li>
@@ -126,7 +131,7 @@
         // console.log(jsonResponse.ip, jsonResponse.country)
     </script>
     <!-- END LOCATOR -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/nav.js' %}"></script>
     {% block script %}
     {% endblock script %}
