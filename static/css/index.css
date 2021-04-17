@@ -118,6 +118,11 @@ img {
   top: calc(100vh + 300px);
 }
 
+.salma img {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
 .about {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -248,6 +253,8 @@ img {
      object-fit: cover;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
 .about .aboutImage img:hover {

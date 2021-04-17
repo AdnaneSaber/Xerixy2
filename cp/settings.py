@@ -60,7 +60,7 @@ MIDDLEWARE_CLASSES = ('maintenance_mode.middleware.MaintenanceModeMiddleware',)
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache',
+        # 'LOCATION': '/var/tmp/django_cache',
     }
 }
 TEMPLATES = [
