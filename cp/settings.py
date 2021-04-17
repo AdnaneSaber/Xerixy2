@@ -25,7 +25,8 @@ SECRET_KEY = '2!ind3w2!&ekxhum7s16m2-l=cvly5^7tjin4btnzp*h1r&i+f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['xerixy.com','www.xerixy.com','localhost','93.188.161.101','127.0.0.1']
+ALLOWED_HOSTS = ['xerixy.com', 'www.xerixy.com',
+                 'localhost', '93.188.161.101', '127.0.0.1']
 
 
 # Application definition
@@ -56,7 +57,12 @@ CONTEXT_PROCESSORS = ['maintenance_mode.context_processors.maintenance_mode']
 ROOT_URLCONF = 'cp.urls'
 
 MIDDLEWARE_CLASSES = ('maintenance_mode.middleware.MaintenanceModeMiddleware',)
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
