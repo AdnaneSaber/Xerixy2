@@ -12,14 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import sqlite3
-from sqlite3 import Error
-# from root.models import UserInfos
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+MAINTENANCE_MODE_IGNORE_ADMIN_SITE = True
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -28,7 +24,6 @@ SECRET_KEY = '2!ind3w2!&ekxhum7s16m2-l=cvly5^7tjin4btnzp*h1r&i+f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-MAINTENANCE_MODE = True
 
 ALLOWED_HOSTS = ['xerixy.com','www.xerixy.com','localhost','93.188.161.101','127.0.0.1']
 

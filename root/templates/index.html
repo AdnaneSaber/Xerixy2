@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
+
+{% block css %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock css %}
+{% block title %}
 <title>{{user.nom_sur_site}}</title>
-{% endblock %}
+{% endblock title %}
 {% block content %}
 
 <div class="landing">
@@ -12,7 +15,39 @@
         <img src="{% static 'images/banierre.jpeg' %}" alt="">
     </div>
     <div class="quote">
-        <h2>your future in our hands.</h2>
+        <h2>your future <br />in our hands.</h2>
+    </div>
+    <div class="secondQuote">
+        <h3>Xerisy gives you vision to a successful business</h3>
+    </div>
+</div>
+<div class="salma">
+    <img src="{% static 'images/salma.svg' %}" alt="">
+</div>
+<div class="about">
+    <div class="aboutContentContainer">
+        <div class="aboutTitle">
+            <h3>about us</h3>
+        </div>
+        <div class="aboutContent">
+            <p>
+                Xerisy is a digital agency that will help you grow
+                your business with our digital solutions
+                and I really dont know what to write here
+                cs Adnane didn't want to give me a good speech
+                and it's been days I can't think and I feel lik im
+                having a blocked mind so im just trying to fill this
+                part where we gonna write sth nice after.
+            </p>
+        </div>
+        <div class="aboutButton">
+            <a href="">
+                Order now
+            </a>
+        </div>
+    </div>
+    <div class="aboutImage">
+        <img src="{% static 'images/aboutImage.jpg' %}" alt="">
     </div>
 </div>
 {% endblock %}

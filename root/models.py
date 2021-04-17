@@ -53,10 +53,23 @@ class UserInfo(models.Model):
     def __str__(self):
         return self.email
 
-# I need to make this pages integrate in a 
+# I need to make this pages integrate in a
 # class pages(models.Model):
 #     page_title = models.CharField(max_length=255, blank=False)
 #     page_content = models.TextField(blank=True)
+
+
+class Maintenance(models.Model):
+    status = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        f = open(os.path.join(settings.BASE_DIR / "cp",
+                              "maintenance_mode_state.txt"), mode="w")
+        f.write(str(int(self.status)))
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"Status: {self.status}"
 
 
 class New(models.Model):

@@ -77,6 +77,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+    {% block css %}
+    {% endblock css %}
     <!-- End CSS -->
     {% block title %}
     {% endblock title %}
@@ -123,7 +126,10 @@
         // console.log(jsonResponse.ip, jsonResponse.country)
     </script>
     <!-- END LOCATOR -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{% static 'js/nav.js' %}"></script>
+    {% block script %}
+    {% endblock script %}
 </body>
 
 </html>

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from root.models import Gallery, Service, UserInfo, seoLink, Lead, New, phoneClick
+from root.models import *
 # Register your models here.
 
-admin.site.site_header = 'Xerisy Admin'
+admin.site.site_header = 'Xerixy Admin'
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -26,6 +26,15 @@ class UserInfosAdmin(admin.ModelAdmin):
         if count == 0:
             return True
 
+        return False
+
+
+class MaintenanceAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        # if there's already an entry, do not allow adding
+        count = Maintenance.objects.all().count()
+        if count == 0:
+            return True
         return False
 
 
@@ -60,3 +69,4 @@ admin.site.register(Lead, LeadsAdmin)
 admin.site.register(UserInfo, UserInfosAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(seoLink, seoLinksAdmin)
+admin.site.register(Maintenance, MaintenanceAdmin)
