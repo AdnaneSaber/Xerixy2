@@ -154,7 +154,6 @@ img {
                 font-size: 1.5em;
                 overflow: hidden;
                 margin: auto;
-                mix-blend-mode: difference;
                 position: relative;
 
                 &::before {
@@ -212,6 +211,64 @@ img {
 
             &:hover {
                 filter: none;
+            }
+        }
+    }
+}
+
+.mission {
+    padding: 7vh;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-size: 2em;
+        text-transform: uppercase;
+        margin: 7vh auto;
+    }
+
+    .animationContainer {
+        margin: auto;
+        position: relative;
+        width: 100%;
+
+        .animation {
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            width: 100%;
+
+            .cardContainer {
+                display: flex;
+                height: 100%;
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    height: 500px;
+                    margin: auto 3em;
+                    // position: absolute;
+                    width: 100vw;
+                    // left: 0;
+
+                    .number {
+                        position: absolute;
+                        font-size: 10em;
+                        color: #ccc;
+                        z-index: -1;
+                    }
+
+                    .cardTitle {
+                        margin: auto auto auto 0;
+                        font-size: 4.3em;
+                    }
+
+                    .cardContent {
+                        margin: 0 auto;
+                        font-size: 1.1em;
+                    }
+                }
             }
         }
     }

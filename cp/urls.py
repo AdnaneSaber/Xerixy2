@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from root import views as root_view
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('', root_view.index),
     path('api/', include('root.urls')),
     path('adminX/', admin.site.urls),
+    path('robots.txt',TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('contact/', root_view.contact_view),
     path('services/', root_view.services),
     path('maintenance/', include('maintenance_mode.urls')),
