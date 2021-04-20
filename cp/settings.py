@@ -24,7 +24,8 @@ SECRET_KEY = '2!ind3w2!&ekxhum7s16m2-l=cvly5^7tjin4btnzp*h1r&i+f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+COMPRESS_ENABLED = True
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 ALLOWED_HOSTS = ['xerixy.com', 'www.xerixy.com',
                  'localhost', '93.188.161.101', '127.0.0.1']
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'crispy_forms',
+    "compressor",
     'root',
     'maintenance_mode',
 ]
@@ -60,9 +62,14 @@ MIDDLEWARE_CLASSES = ('maintenance_mode.middleware.MaintenanceModeMiddleware',)
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        # 'LOCATION': '/var/tmp/django_cache',
+        'LOCATION': '/var/tmp/django_cache',
     }
 }
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -2,7 +2,7 @@
 <html lang="en">
 {% load static %}
 {% load i18n %}
-
+{% load compress %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -75,11 +75,13 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <!-- End Favicon links -->
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css" charset="utf-8">
     
     {% block css %}
     {% endblock css %}
+    {% endcompress %}
     <!-- End CSS -->
     {% block title %}
     {% endblock title %}
@@ -131,10 +133,13 @@
         // console.log(jsonResponse.ip, jsonResponse.country)
     </script>
     <!-- END LOCATOR -->
+    {% compress js %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/nav.js' %}"></script>
+    {% endcompress %}
     {% block script %}
     {% endblock script %}
+    
 </body>
 
 </html>
