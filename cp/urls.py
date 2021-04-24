@@ -21,6 +21,7 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path('', root_view.index),
     path('api/', include('root.urls')),
+    path('chat/', include('chat.urls')),
     path('adminX/', admin.site.urls),
     path('robots.txt',TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('contact/', root_view.contact_view),
