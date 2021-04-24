@@ -7,7 +7,7 @@ from .views import (
     FacebookWebhookView,
     )
 
-app_name ='chatbot'
+app_name ='chat'
 
 urlpatterns = [
     # replace <string_endpoint> with the one you created above
