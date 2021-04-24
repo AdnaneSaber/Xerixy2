@@ -11,7 +11,7 @@ from .bot_logic import LOGIC_RESPONSES
 
 
 # change this to generated above
-VERIFY_TOKEN = "11f91fcc326dad4d2d3118fc816e0006ffca5c6005b66013f5" 
+VERIFY_TOKEN = "98be30d93e2f19a7c2095f8a79b15d9c89f5404232d8076eaf" 
 
 """
 
@@ -22,7 +22,7 @@ Come from the next step.
 
 FB_ENDPOINT = 'https://graph.facebook.com/v10.0/'
 
-PAGE_ACCESS_TOKEN = "EAANlaKsbg2gBAFeglwjOuAHQFnFtefybz9VE8sYLNa8oBQeMbIeA0rDDcan8uWtLIZAYT0TsK1UYBpXV7SaO0juqKQFENIQc5zGTexvBT122JdZA9l2UMECH81XsG2XfmIFT5pPi6Y9sgS05a9T8XC1l9bd0NBfkyQwoErCRWrbGqDgZCh3"  
+PAGE_ACCESS_TOKEN = "EAANlaKsbg2gBADdMP7ebRbp0dAE47NdXkr4OrpzTF57aF7Rs2IcAMTGRhyGUuB7nfu9ciyoZALzq4BBxYcM48ZALMNjJyElb4hBuJrnVaH0ZB0jE2xxJ9r9WvAEOrpMSGz4fV31cFqXxfyqn4XGcJ7Qr6ZBLY0P83rrjhsPfVmuMl0raPMV3"  
 
 
 

@@ -11,7 +11,7 @@ app_name ='chat'
 
 urlpatterns = [
     # replace <string_endpoint> with the one you created above
-    re_path(r'^01e7925bc8e21a3c5b8406e52da5e414465631dd638f24c946e1fe8157f1/$', FacebookWebhookView.as_view(), name='webhook'),
+    re_path(r'^d8db68392956fcc31d9a91579fa144707d4f8d6f2119d993fcd985509e95/$', FacebookWebhookView.as_view(), name='webhook'),
 ]
 
 
