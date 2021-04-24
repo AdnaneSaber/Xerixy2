@@ -3,6 +3,7 @@
 {% load static %}
 {% load i18n %}
 {% load compress %}
+{% load gtm_tags %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -75,6 +76,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <!-- End Favicon links -->
     <!-- CSS -->
+    {% gtm_head %}
     {% compress css %}
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css" charset="utf-8">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css" charset="utf-8">
@@ -88,6 +90,7 @@
 </head>
 
 <body>
+    {% gtm_body %}
 <!-- <div class="fb-customerchat" page_id="101135438796636"></div>
 <script>
   window.fbAsyncInit = function() {

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "compressor",
     'chat',
+    'gtm',
     'root',
     'maintenance_mode',
 ]
@@ -128,6 +129,10 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
+
+# Google Tag Manager
+
+GOOGLE_TAG_ID = "GTM-P5BQKHQ"
 
 USE_L10N = True
 
