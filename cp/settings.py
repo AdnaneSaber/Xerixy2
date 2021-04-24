@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     "compressor",
+    'chat',
     'root',
     'maintenance_mode',
 ]
