@@ -25,7 +25,8 @@ SECRET_KEY = '2!ind3w2!&ekxhum7s16m2-l=cvly5^7tjin4btnzp*h1r&i+f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 COMPRESS_ENABLED = True
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',
+                        'compressor.filters.cssmin.CSSMinFilter']
 ALLOWED_HOSTS = ['xerixy.com', 'www.xerixy.com',
                  'localhost', '93.188.161.101', '127.0.0.1']
 
@@ -41,13 +42,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'crispy_forms',
-    "compressor",
+    # 'corsheaders',
+    'compressor',
     'chat',
     'gtm',
     'root',
+    'tasks',
     'maintenance_mode',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 MIDDLEWARE = [
+    # 'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,6 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'maintenance_mode.middleware.MaintenanceModeMiddleware',
 ]
+# CORS_ALLOW_ALL_ORIGINS = True
 CONTEXT_PROCESSORS = ['maintenance_mode.context_processors.maintenance_mode']
 ROOT_URLCONF = 'cp.urls'
 
@@ -153,6 +165,7 @@ EMAIL_HOST_PASSWORD = "Adn123adn"
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "tasks/templates/build/static"
 ]
 
 STATIC_ROOT = "/home/adn/chauffepro/static_files/"
