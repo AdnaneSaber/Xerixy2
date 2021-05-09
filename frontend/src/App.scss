@@ -1,0 +1,142 @@
+// $red:#ff4757;
+// $green:#2ed573;
+// $black:#2f3542;
+// $white:#f1f2f6;
+// @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
+
+// .container {
+//     width: 100%;
+//     height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     .todoList {
+//         min-width: 300px;
+//         width: 500px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         flex-direction: column;
+//         background: $black;
+//         color: #fff;
+//         border-radius: 10px;
+//         filter: drop-shadow(0px 1px 7px #858585);
+
+//         input.creator {
+//             width: 70%;
+//             height: 35px;
+//             border: none;
+//             filter: drop-shadow(0px 1px 7px #858585);
+//             border-radius: 5px;
+//             &:focus{
+//                 outline: none;
+//             }
+//         }
+//         .todosContainer{
+//             width: 100%;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             flex-direction: column;
+//         }
+//     }
+// }
+body {
+    background: #352f5b;
+}
+
+.container {
+    max-width: 800px;
+}
+
+input[type=text],
+input[type=text]:focus {
+    color: #fff;
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+}
+
+@mixin dffc {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start
+}
+
+.form-group.row {
+    @include dffc();
+}
+
+.todos li {
+    background: #423a6f;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.filtered {
+    display: none !important;
+}
+
+.form-check-input {
+    position: relative;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+span {
+    width: 25%;
+}
+
+.submit {
+    background: #423a6f;
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: #3a3364 !important;
+        border: none;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+.almostDone {
+    color: var(--danger);
+}
+
+li:hover {
+    button.btn.btn-danger {
+        visibility: visible;
+    }
+}
+
+li button.btn.btn-danger {
+    position: absolute;
+    left: calc(100% + 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+
+}
+
+li button.btn.btn-danger:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid var(--danger);
+    position: absolute;
+    left: -19px;
+}
