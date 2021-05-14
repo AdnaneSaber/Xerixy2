@@ -12,7 +12,7 @@ import git
 from django.contrib.gis.geoip2 import GeoIP2
 import requests
 import json
-import subprocess
+import os
 
 def contact_view(request):
     context = {"self": "contact"}.copy()
@@ -132,12 +132,8 @@ def update_view(request):
             # git.config_writer().set_value("user", "name", "AdnaneSaber").release()
             # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
             # msg = g.pull()
-            try:
-                output = subprocess.check_output(['git', 'pull'], stderr=subprocess.STDOUT)
-            except subprocess.CalledProcessError as e:
-                output= "Exception on process, rc=", e.returncode, "output=", e.output
-            # output = subprocess.check_output(["git", "pull"])
-            context = output
+            os.system('git pull;sudo systemctl restart apache2;')
+            context = "msg"
         else:
             context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
