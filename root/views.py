@@ -133,9 +133,10 @@ def update_view(request):
             # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
             # msg = g.pull()
             os.system('git pull;sudo systemctl restart apache2;')
-            context = "msg"
+            msg = os.popen('git pull;sudo systemctl restart apache2;').read()
+            context = msg
         else:
-            context = "<span style='color: #ccc'>Error</span>"
+            context = "<span style='color: #f00'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
     else:
         raise Http404
