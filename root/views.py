@@ -128,7 +128,7 @@ def update_view(request):
         return render(request, "git_update.html")
     elif request.method == 'POST':
         if request.POST.get('password') == 'Adnane05022020Salm@':
-            g = git.cmd.Git('~/chauffepro')
+            g = git.cmd.Git('/home/adn/chauffepro/manage.py')
             msg = g.pull()
             context = msg
         else:
