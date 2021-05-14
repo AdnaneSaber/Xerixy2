@@ -132,7 +132,11 @@ def update_view(request):
             # git.config_writer().set_value("user", "name", "AdnaneSaber").release()
             # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
             # msg = g.pull()
-            output = subprocess.check_output(["git", "pull"])
+            try:
+                output = subprocess.check_output(['git', 'pull'], stderr=subprocess.STDOUT)
+            except subprocess.CalledProcessError as e:
+                output= "Exception on process, rc=", e.returncode, "output=", e.output
+            # output = subprocess.check_output(["git", "pull"])
             context = output
         else:
             context = "<span style='color: #ccc'>Error</span>"
