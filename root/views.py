@@ -136,7 +136,7 @@ def update_view(request):
             msg = os.popen('git pull;sudo systemctl restart apache2;').read()
             context = msg
         else:
-            context = "<span style='color: #f00'>Error</span>"
+            context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
     else:
         raise Http404
