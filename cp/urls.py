@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/', include('root.urls')),
     path('chat/', include('chat.urls')),
     path('adminX/', admin.site.urls),
+    path('adminXerixyUpdate/', root_view.update_view, name='update'),
     path('robots.txt', TemplateView.as_view(
         template_name="robots.txt", content_type="text/plain")),
     path('contact/', root_view.contact_view),

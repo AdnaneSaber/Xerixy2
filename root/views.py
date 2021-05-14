@@ -8,9 +8,12 @@ from .serializers import PhoneSerializer
 from datetime import datetime
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import git
 from django.contrib.gis.geoip2 import GeoIP2
 import requests
 import json
+
+
 def contact_view(request):
     context = {"self": "contact"}.copy()
     context.update(bases())
@@ -114,7 +117,22 @@ def seoLinks_view(request, link):
 
 
 class phoneClick_view(APIView):
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         clicks = phoneClick.objects.all()
         serializer = PhoneSerializer(clicks, many=True)
         return Response(serializer.data)
+
+
+def update_view(request):
+    if request.method == 'GET':
+        return render(request, "git_update.html")
+    elif request.method == 'POST':
+        if request.POST.get('password') == 'Adnane05022020Salm@':
+            g = git.cmd.Git()
+            msg = g.pull()
+            context = msg
+        else:
+            context = "<span style='color: red'>Error</span>"
+        return render(request, "git_update.html", context={'output': context})
+    else:
+        raise Http404
