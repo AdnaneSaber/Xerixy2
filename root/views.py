@@ -12,7 +12,7 @@ import git
 from django.contrib.gis.geoip2 import GeoIP2
 import requests
 import json
-
+import subprocess
 
 def contact_view(request):
     context = {"self": "contact"}.copy()
@@ -128,11 +128,14 @@ def update_view(request):
         return render(request, "git_update.html")
     elif request.method == 'POST':
         if request.POST.get('password') == 'Adnane05022020Salm@':
-            g = git.cmd.Git('/home/adn/chauffepro/')
-            msg = g.pull()
-            context = msg
+            # g = git.cmd.Git('/home/adn/chauffepro/')
+            # git.config_writer().set_value("user", "name", "AdnaneSaber").release()
+            # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
+            # msg = g.pull()
+            output = subprocess.check_output(["git", "pull"])
+            context = output
         else:
-            context = "<span style='color: red'>Error</span>"
+            context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
     else:
         raise Http404
