@@ -136,14 +136,14 @@ def update_view(request):
             # git.config_writer().set_value("user", "name", "AdnaneSaber").release()
             # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
             # msg = g.pull()
-            # os.system('git pull;sudo systemctl restart apache2;')
-            # msg = os.popen('git pull;sudo systemctl restart apache2;').read()
+            os.system('sudo git pull;sudo systemctl restart apache2;')
+            msg = os.popen('sudo git pull;sudo systemctl restart apache2;').read()
             # context = msg
-            proc = subprocess.Popen(
-                shlex.split('sudo git --git-dir=/home/adn/chauffepro/.git pull'), stdout=subprocess.PIPE, shell=True)
-            (out, err) = proc.communicate()
-            # print(out)
-            context = out
+            # proc = subprocess.Popen(
+            #     shlex.split('sudo git --git-dir=/home/adn/chauffepro/.git pull'), stdout=subprocess.PIPE, shell=True)
+            # (out, err) = proc.communicate()
+            # # print(out)
+            # context = out
         else:
             context = "<span style='color: #ccc'>Error</span>"
             err = ""
