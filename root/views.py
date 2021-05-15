@@ -144,6 +144,7 @@ def update_view(request):
             # (out, err) = proc.communicate()
             # # print(out)
             # context = out
+            err = ""
         else:
             context = "<span style='color: #ccc'>Error</span>"
             err = ""
