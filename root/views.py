@@ -13,7 +13,9 @@ from django.contrib.gis.geoip2 import GeoIP2
 import requests
 import json
 import os
-import subprocess 
+import subprocess
+import shlex
+
 
 def contact_view(request):
     context = {"self": "contact"}.copy()
@@ -137,10 +139,11 @@ def update_view(request):
             # os.system('git pull;sudo systemctl restart apache2;')
             # msg = os.popen('git pull;sudo systemctl restart apache2;').read()
             # context = msg
-            proc = subprocess.Popen(["git", "pull"], stdout=subprocess.PIPE, shell=True)
+            proc = subprocess.Popen(
+                shlex.split('git --git-dir=/home/adn/chauffepro/.git pull'), stdout=subprocess.PIPE, shell=True)
             (out, err) = proc.communicate()
             print(out)
-            context = "program output:", out          
+            context = "program output:", out
         else:
             context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
