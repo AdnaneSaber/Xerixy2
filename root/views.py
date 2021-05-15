@@ -132,7 +132,7 @@ def update_view(request):
     elif request.method == 'POST':
         # if request.POST.get('password') == 'Adnane05022020Salm@':
         if request.POST.get('password') == 'adn':
-            repo = git.Repo()
+            repo = git.Repo('/home/adn/chauffepro/')
             origin = repo.remotes.origin
             # g = git.cmd.Git('/home/adn/chauffepro/')
             subprocess.check_output(['git', 'pull'], cwd="/home/adn/chauffepro/")
