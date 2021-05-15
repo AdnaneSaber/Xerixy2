@@ -136,18 +136,18 @@ def update_view(request):
             # git.config_writer().set_value("user", "name", "AdnaneSaber").release()
             # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
             # msg = g.pull()
-            os.system('sudo git pull;sudo systemctl restart apache2;')
-            msg = os.popen('sudo git pull;sudo systemctl restart apache2;').read()
-            context = msg
+            # os.system('sudo git pull;sudo systemctl restart apache2;')
+            # msg = os.popen('sudo git pull;sudo systemctl restart apache2;').read()
+            # context = msg
+            result = subprocess.run(['ls', '-l'], stdout=subprocess.PIPE)
+            
             # proc = subprocess.Popen(
             #     shlex.split('sudo git --git-dir=/home/adn/chauffepro/.git pull'), stdout=subprocess.PIPE, shell=True)
             # (out, err) = proc.communicate()
             # # print(out)
-            # context = out
-            err = ""
+            context = result.stdout()
         else:
             context = "<span style='color: #ccc'>Error</span>"
-            err = ""
-        return render(request, "git_update.html", context={'output': context,'error':err})
+        return render(request, "git_update.html", context={'output': context})
     else:
         raise Http404
