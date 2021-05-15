@@ -13,6 +13,7 @@ from django.contrib.gis.geoip2 import GeoIP2
 import requests
 import json
 import os
+import subprocess 
 
 def contact_view(request):
     context = {"self": "contact"}.copy()
@@ -127,14 +128,19 @@ def update_view(request):
     if request.method == 'GET':
         return render(request, "git_update.html")
     elif request.method == 'POST':
-        if request.POST.get('password') == 'Adnane05022020Salm@':
+        # if request.POST.get('password') == 'Adnane05022020Salm@':
+        if request.POST.get('password') == 'adn':
             # g = git.cmd.Git('/home/adn/chauffepro/')
             # git.config_writer().set_value("user", "name", "AdnaneSaber").release()
             # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
             # msg = g.pull()
-            os.system('git pull;sudo systemctl restart apache2;')
-            msg = os.popen('git pull;sudo systemctl restart apache2;').read()
-            context = msg
+            # os.system('git pull;sudo systemctl restart apache2;')
+            # msg = os.popen('git pull;sudo systemctl restart apache2;').read()
+            # context = msg
+            proc = subprocess.Popen(["git", "pull"], stdout=subprocess.PIPE, shell=True)
+            (out, err) = proc.communicate()
+            print(out)
+            context = "program output:", out          
         else:
             context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
