@@ -133,7 +133,7 @@ def update_view(request):
         if request.POST.get('password') == 'Adnane05022020Salm@':
             msg = subprocess.run(shlex.split(
                 'git pull https://AdnaneSaber:Adn123adn@github.com/AdnaneSaber/chauffepro'), cwd="/home/adn/chauffepro/", stdout=subprocess.PIPE)
-            context = msg.stdout
+            context = msg.stdout.decode('utf-8')
         else:
             context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
