@@ -138,7 +138,7 @@ def update_view(request):
             # msg = g.pull()
             os.system('sudo git pull;sudo systemctl restart apache2;')
             msg = os.popen('sudo git pull;sudo systemctl restart apache2;').read()
-            # context = msg
+            context = msg
             # proc = subprocess.Popen(
             #     shlex.split('sudo git --git-dir=/home/adn/chauffepro/.git pull'), stdout=subprocess.PIPE, shell=True)
             # (out, err) = proc.communicate()
