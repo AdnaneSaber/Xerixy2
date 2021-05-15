@@ -132,9 +132,12 @@ def update_view(request):
     elif request.method == 'POST':
         # if request.POST.get('password') == 'Adnane05022020Salm@':
         if request.POST.get('password') == 'adn':
-            g = git.cmd.Git('/home/adn/chauffepro/')
-            msg = g.pull()
-            context = msg
+            repo = git.Repo()
+            origin = repo.remotes.origin
+            # g = git.cmd.Git('/home/adn/chauffepro/')
+            subprocess.check_output(['git', 'pull'], cwd="/home/adn/chauffepro/")
+            msg = origin.pull()
+            context = dir(msg)
         else:
             context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
