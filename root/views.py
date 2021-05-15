@@ -1,7 +1,7 @@
 from django.core.mail import BadHeaderError, send_mail
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
-from .models import Service, Gallery, seoLink, UserInfo, New, phoneClick
+from .models import Service, Gallery, seoLink, UserInfo, New, phoneClick, gitAccount
 from django.conf import settings
 from .forms import ContactForm
 from .serializers import PhoneSerializer
@@ -130,9 +130,10 @@ def update_view(request):
     if request.method == 'GET':
         return render(request, "git_update.html")
     elif request.method == 'POST':
-        if request.POST.get('password') == 'Adnane05022020Salm@':
+        git = gitAccount.objects.first()
+        if request.POST.get('password') == git.upatePassword:
             msg = subprocess.run(shlex.split(
-                'git pull https://AdnaneSaber:Adn123adn@github.com/AdnaneSaber/chauffepro'), cwd="/home/adn/chauffepro/", stdout=subprocess.PIPE)
+                f'git pull https://{git.userName}:{git.password}@github.com/{git.userName}/{git.repository}'), cwd="/home/adn/chauffepro/", stdout=subprocess.PIPE)
             context = msg.stdout.decode('utf-8')
         else:
             context = "<span style='color: #f00'>Error</span>"

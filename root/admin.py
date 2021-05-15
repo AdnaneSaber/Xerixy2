@@ -27,6 +27,14 @@ class UserInfosAdmin(admin.ModelAdmin):
             return True
 
         return False
+class GitAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        # if there's already an entry, do not allow adding
+        count = gitAccount.objects.all().count()
+        if count == 0:
+            return True
+
+        return False
 
 
 class MaintenanceAdmin(admin.ModelAdmin):
@@ -74,3 +82,4 @@ admin.site.register(UserInfo, UserInfosAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(seoLink, seoLinksAdmin)
 admin.site.register(Maintenance, MaintenanceAdmin)
+admin.site.register(gitAccount, GitAdmin)

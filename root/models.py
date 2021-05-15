@@ -4,6 +4,7 @@ from django.utils.html import escape, mark_safe
 
 from django.conf import settings
 from django.db import models
+from git.exc import RepositoryDirtyError
 from unidecode import unidecode
 from django.core.validators import RegexValidator
 from PIL import Image
@@ -182,6 +183,15 @@ class Lead(models.Model):
 
     def __str__(self):
         return self.mail
+
+
+class gitAccount(models.Model):
+    userName = models.CharField(max_length=25)
+    password = models.CharField(max_length=25)
+    repository = models.CharField(max_length=25)
+    upatePassword = models.CharField(max_length=50)
+    def __str__(self):
+        return self.userName
 
 
 class phoneClick(models.Model):
