@@ -142,8 +142,8 @@ def update_view(request):
             proc = subprocess.Popen(
                 shlex.split('git --git-dir=/home/adn/chauffepro/.git pull'), stdout=subprocess.PIPE, shell=True)
             (out, err) = proc.communicate()
-            print(out)
-            context = "program output:", out
+            # print(out)
+            context = out
         else:
             context = "<span style='color: #ccc'>Error</span>"
         return render(request, "git_update.html", context={'output': context})
