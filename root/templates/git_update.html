@@ -12,7 +12,8 @@
     {% if request.user.is_authenticated %}
     <form method="post">
         <input type="password" placeholder="Enter Password.." name="password" />
-        <h1>{{output | safe}}</h1>
+        <h1>{{output}}</h1>
+        <h1>{{error}}</h1>
         {% csrf_token %}
         <button type="submit">Update</button>
     </form>

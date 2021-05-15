@@ -146,6 +146,6 @@ def update_view(request):
             context = out
         else:
             context = "<span style='color: #ccc'>Error</span>"
-        return render(request, "git_update.html", context={'output': context})
+        return render(request, "git_update.html", context={'output': context,'error':err})
     else:
         raise Http404
