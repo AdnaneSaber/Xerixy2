@@ -135,7 +135,8 @@ def update_view(request):
             repo = git.Repo('/home/adn/chauffepro/')
             origin = repo.remotes.origin
             # g = git.cmd.Git('/home/adn/chauffepro/')
-            subprocess.check_output(['git', 'pull'], cwd="/home/adn/chauffepro/")
+            subprocess.check_output(
+                ['sudo', 'git', 'pull'], cwd="/home/adn/chauffepro/")
             msg = origin.pull()
             context = dir(msg)
         else:
