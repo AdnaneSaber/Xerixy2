@@ -137,7 +137,7 @@ def update_view(request):
             # git.config_writer().set_value("user", "email", "adnanesaber15@gmail.com").release()
             # msg = g.pull()
             # os.system('sudo git pull;sudo systemctl restart apache2;')
-            msg = os.popen('sudo git pull').read()
+            msg = os.popen('git pull').read()
             context = msg
             # result = subprocess.run(
             #     ['git', 'pull'], stdout=subprocess.PIPE)
