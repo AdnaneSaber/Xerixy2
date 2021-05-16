@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     # 'corsheaders',
+    'adminsortable2',
     'compressor',
     'chat',
     'gtm',

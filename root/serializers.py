@@ -1,7 +1,7 @@
-from .models import phoneClick
+from .models import PhoneClick
 from rest_framework import serializers
 
 class PhoneSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = phoneClick
+        model = PhoneClick
         fields = ["__all__"]

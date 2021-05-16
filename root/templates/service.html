@@ -2,14 +2,9 @@
 {% load static %}
 
 
+{% block metaT %}{{service.service_meta_title}}{% endblock metaT %}
+{% block metaD %}{{service.service_meta_description}}{% endblock metaD %}
 
-
-{% block metaT %}
-<meta name="title" content="{{service.service_meta_title}}">
-{% endblock metaT %}
-{% block metaD %}
-<meta name="description" content="{{service.service_meta_description}}">
-{% endblock metaD %}
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/services.css' %}">

@@ -1,10 +1,8 @@
 import os
 from datetime import datetime
 from django.utils.html import escape, mark_safe
-
 from django.conf import settings
 from django.db import models
-from git.exc import RepositoryDirtyError
 from unidecode import unidecode
 from django.core.validators import RegexValidator
 from PIL import Image
@@ -142,7 +140,7 @@ class Gallery(models.Model):
         return ""
 
 
-class seoLink(models.Model):
+class SeoLink(models.Model):
     title = models.CharField(max_length=255, blank=False, null=False)
     url = models.CharField(max_length=255, null=False, blank=True, unique=True)
     content = models.TextField(blank=False, default="pas de contenu..")
@@ -185,19 +183,51 @@ class Lead(models.Model):
         return self.mail
 
 
-class gitAccount(models.Model):
+class GitAccount(models.Model):
     userName = models.CharField(max_length=25)
     password = models.CharField(max_length=25)
     repository = models.CharField(max_length=25)
     upatePassword = models.CharField(max_length=50)
+
     def __str__(self):
         return self.userName
 
 
-class phoneClick(models.Model):
+class PhoneClick(models.Model):
     page = models.CharField(max_length=255)
     # should be edited
     location = models.CharField(max_length=255)
     # should be edited
     geo_location = models.CharField(max_length=255)
     click_date = models.DateTimeField(auto_now_add=True)
+
+
+class Page(models.Model):
+    page_title = models.CharField(max_length=255)
+    page_meta_title = models.CharField(blank=True,
+                                       max_length=60)
+    page_meta_description = models.TextField(blank=True,
+                                             max_length=160)
+    page_url = models.CharField(
+        max_length=255, null=False, blank=True, unique=True)
+    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    class Meta(object):
+        ordering = ['my_order']
+
+    def save(self, *args, **kwargs):
+        if not self.page_url:
+            self.page_url = urlFormater(self.page_title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.page_title
+
+
+class PageContent(models.Model):
+    content_title = models.CharField(max_length=255)
+    content = models.TextField()
+    page = models.ForeignKey(Page, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.content_title

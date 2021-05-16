@@ -9,8 +9,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% block metaT %}{% endblock metaT %}
-    {% block metaD %}{% endblock metaD %}
+    <meta name="title" content="Xerixy | {% block metaT %}{% endblock metaT %}">
+    <meta name="description" content="{% block metaD %}{% endblock metaD %}">
     {% comment %} Fonts {% endcomment %}
     <style>
         @font-face {
@@ -90,49 +90,8 @@
     {% endblock title %}
 </head>
 
-<body>
+<body id="{% block idBody %}{% endblock idBody %}">
     {% gtm_body %}
-    <!-- <div class="fb-customerchat" page_id="101135438796636"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '955925151843176',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v10.0'
-    });
-  };
-(function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script> -->
-    <!-- Messenger Chat Plugin Code -->
-    <!-- <div id="fb-root"></div>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v10.0'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script> -->
-
-    <!-- Your Chat Plugin code -->
-    <!-- <div class="fb-customerchat" attribution="page_inbox" page_id="101135438796636">
-    </div> -->
     <nav id="navbar">
         <div class="logoContainer">
             <a href="/" class="logo">
@@ -156,12 +115,15 @@
             </div>
             <button id="closeNav">&times;</button>
             <ul class="navLinksUl">
-                <li class="navLinksItem"><a href="/">Home</a></li>
-                <li class="navLinksItem"><a href="">About</a></li>
+                <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
+                {% for page in pages %}
+                <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
+                {% endfor %}
+                <!-- <li class="navLinksItem"><a href="">About</a></li>
                 <li class="navLinksItem"><a href="">our mission</a></li>
                 <li class="navLinksItem"><a href="">our team</a></li>
-                <li class="navLinksItem"><a href="">our projects</a></li>
-                <li class="navLinksItem"><a href="/contact">contact</a></li>
+                <li class="navLinksItem"><a href="">our projects</a></li> -->
+                <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
             </ul>
         </div>
     </nav>

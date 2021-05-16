@@ -1,5 +1,6 @@
 from django.contrib import admin
 from root.models import *
+from adminsortable2.admin import SortableAdminMixin
 # Register your models here.
 
 admin.site.site_header = 'Xerixy Admin'
@@ -27,10 +28,12 @@ class UserInfosAdmin(admin.ModelAdmin):
             return True
 
         return False
+
+
 class GitAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # if there's already an entry, do not allow adding
-        count = gitAccount.objects.all().count()
+        count = GitAccount.objects.all().count()
         if count == 0:
             return True
 
@@ -39,7 +42,7 @@ class GitAdmin(admin.ModelAdmin):
 
 class MaintenanceAdmin(admin.ModelAdmin):
 
-    def has_delete_permission(self, request, obj = None):
+    def has_delete_permission(self, request, obj=None):
         return False
 
     def has_add_permission(self, request):
@@ -74,12 +77,26 @@ class LeadsAdmin(admin.ModelAdmin):
                        'mail', 'interestedBy', 'message', 'send_date',)
 
 
+class PageAdmin(SortableAdminMixin, admin.ModelAdmin):
+    list_display = ['id', 'page_title', 'page_url']
+    readonly_fields = ('page_url',)
+    ordering = ['my_order']
+
+
+class PageContentAdmin(admin.ModelAdmin):
+    list_filter = ('page', )
+    list_display = ['id', 'content_title', 'page']
+    ordering = ['id']
+
+
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(New, NewAdmin)
-admin.site.register(phoneClick)
+admin.site.register(PhoneClick)
+admin.site.register(Page, PageAdmin)
+admin.site.register(PageContent, PageContentAdmin)
 admin.site.register(Lead, LeadsAdmin)
 admin.site.register(UserInfo, UserInfosAdmin)
 admin.site.register(Service, ServiceAdmin)
-admin.site.register(seoLink, seoLinksAdmin)
+admin.site.register(SeoLink, seoLinksAdmin)
 admin.site.register(Maintenance, MaintenanceAdmin)
-admin.site.register(gitAccount, GitAdmin)
+admin.site.register(GitAccount, GitAdmin)

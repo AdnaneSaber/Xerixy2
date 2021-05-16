@@ -1,7 +1,7 @@
 from django.core.mail import BadHeaderError, send_mail
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
-from .models import Service, Gallery, seoLink, UserInfo, New, phoneClick, gitAccount
+from .models import Page, PageContent, Service, Gallery, SeoLink, UserInfo, New, PhoneClick, GitAccount
 from django.conf import settings
 from .forms import ContactForm
 from .serializers import PhoneSerializer
@@ -65,10 +65,11 @@ def contact_view(request):
 def bases():
     gallery = Gallery.objects.all()
     services = Service.objects.all()
-    link_query = seoLink.objects.all()
+    link_query = SeoLink.objects.all()
     news = New.objects.all()
+    page = Page.objects.all()
     user = UserInfo.objects.first()
-    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'user': user}
+    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'user': user, 'pages': page}
 
 
 def index(request):
@@ -111,7 +112,7 @@ def gallery_view(request):
 
 
 def seoLinks_view(request, link):
-    link_query = seoLink.objects.get(url=link)
+    link_query = SeoLink.objects.get(url=link)
     context = {"link": link_query}.copy()
     context.update(bases())
     if not link_query:
@@ -121,7 +122,7 @@ def seoLinks_view(request, link):
 
 class phoneClick_view(APIView):
     def get(self, request):
-        clicks = phoneClick.objects.all()
+        clicks = PhoneClick.objects.all()
         serializer = PhoneSerializer(clicks, many=True)
         return Response(serializer.data)
 
@@ -130,7 +131,7 @@ def update_view(request):
     if request.method == 'GET':
         return render(request, "git_update.html")
     elif request.method == 'POST':
-        git = gitAccount.objects.first()
+        git = GitAccount.objects.first()
         if request.POST.get('password') == git.upatePassword:
             msg = subprocess.run(shlex.split(
                 f'git pull https://{git.userName}:{git.password}@github.com/{git.userName}/{git.repository}'), cwd="/home/adn/chauffepro/", stdout=subprocess.PIPE)
@@ -140,3 +141,27 @@ def update_view(request):
         return render(request, "git_update.html", context={'output': context})
     else:
         raise Http404
+
+
+def page_view(request, page_url):
+    try:
+        queryset = Page.objects.get(page_url=page_url)
+    except Page.DoesNotExist:
+        queryset = None
+    if not queryset:
+        raise Http404
+    contents = PageContent.objects.filter(page=queryset.id)
+    data = []
+    for i in range(contents.count()):
+        data.append({
+            "id": contents[i].id,
+            "content_title": contents[i].content_title,
+            "content": contents[i].content,
+        })
+    context = {"self": queryset, "data": data}.copy()
+    context.update(bases())
+    template = "page.html"
+    for file in os.listdir(os.path.join(settings.BASE_DIR / __package__ / "templates")):
+        if file == f"page-{queryset.id}.html":
+            template = file
+    return render(request, template, context=context)
