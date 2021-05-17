@@ -27,10 +27,15 @@ nav {
         display: flex;
         justify-content: center;
         transition: all .4s ease-in-out;
-        height: 90px;
+        height: 70px;
 
-        img {
-            width: 70px;
+        .logo {
+            text-align: center;
+
+            img {
+                width: auto;
+                height: 100%;
+            }
         }
     }
 
@@ -60,7 +65,7 @@ nav {
 
     .navLinks {
         display: flex;
-        padding: 20px 0;
+        padding: 0;
         width: 100%;
         position: relative;
 
@@ -97,7 +102,7 @@ nav {
 
         @media screen and (min-width:800px) {
             display: flex !important;
-            padding: 20px 0 !important;
+            padding: 0 !important;
             width: 100% !important;
             position: relative !important;
             left: auto !important;

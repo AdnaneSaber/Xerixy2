@@ -116,6 +116,7 @@
             <button id="closeNav">&times;</button>
             <ul class="navLinksUl">
                 <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
+                <li class="navLinksItem"><a href="{% url 'services' %}">Our offers</a></li>
                 {% for page in pages %}
                 <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
                 {% endfor %}

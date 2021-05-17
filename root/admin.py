@@ -7,8 +7,17 @@ admin.site.site_header = 'Xerixy Admin'
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['service_title', 'service_url']
-    readonly_fields = ["service_url", 'Image_preview']
+    list_display = ['service_title', 'service_url', "Image_preview"]
+    readonly_fields = ("service_url", 'Image_preview',)
+
+    def thumbnail_preview(self, obj):
+        return obj.Image_preview
+    thumbnail_preview.allow_tags = True
+
+
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'Image_preview', "image_title", "image_description")
+    readonly_fields = ('Image_preview', )
 
     def thumbnail_preview(self, obj):
         return obj.Image_preview
@@ -51,15 +60,6 @@ class MaintenanceAdmin(admin.ModelAdmin):
         if count == 0:
             return True
         return False
-
-
-class GalleryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'Image_preview', "image_title", "image_description")
-    readonly_fields = ('Image_preview', )
-
-    def thumbnail_preview(self, obj):
-        return obj.Image_preview
-    thumbnail_preview.allow_tags = True
 
 
 class seoLinksAdmin(admin.ModelAdmin):

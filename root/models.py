@@ -105,8 +105,8 @@ class Service(models.Model):
 
     @property
     def Image_preview(self):
-        if self.image:
-            return mark_safe('<img src="/static{}" width="75" height="50" />'.format(self.image.url))
+        if self.service_image:
+            return mark_safe('<img src="/static{}" width="75" height="50" />'.format(self.service_image.url))
         return ""
 
     def __str__(self):

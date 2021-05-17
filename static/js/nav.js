@@ -28,7 +28,7 @@ $(document).ready(function () {
       $("nav").addClass("fixed");
     } else {
       $("nav").removeClass("fixed");
-      $(".logoContainer").css("height", "90px");
+      $(".logoContainer").css("height", "70px");
       $(".scrollLogo").css("width", "0%");
       $(".scrollLogo").css("margin", "0");
     }
