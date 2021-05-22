@@ -33,6 +33,7 @@
 {% endif %}
 
 <input type="hidden" name="location" value="">
+<script src="{% static 'js/jquery.min.js' %}"></script>
 <script>
     $.get("https://ipinfo.io", function (response) {
         console.log(response.city, response.country);
