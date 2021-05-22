@@ -49,6 +49,7 @@ nav .logoContainer .logo {
 nav .logoContainer .logo img {
   width: auto;
   height: 100%;
+  max-width: 50px;
 }
 
 nav button {
@@ -87,6 +88,7 @@ nav .navLinks {
   padding: 0;
   width: 100%;
   position: relative;
+  z-index: 10;
 }
 
 nav .navLinks .scrollLogo {
@@ -137,7 +139,7 @@ nav .navLinks #closeNav {
 
 @media screen and (max-width: 800px) {
   nav .navLinks {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     left: 100%;
