@@ -69,6 +69,7 @@ nav {
         padding: 0;
         width: 100%;
         position: relative;
+        z-index: 10;
 
         .scrollLogo {
             width: 0%;
@@ -111,7 +112,7 @@ nav {
         }
 
         @media screen and (max-width:800px) {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100vh;
             left: 100%;
