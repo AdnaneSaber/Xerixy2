@@ -68,8 +68,9 @@ def bases():
     link_query = SeoLink.objects.all()
     news = New.objects.all()
     page = Page.objects.all()
+    seo = SeoLink.objects.all()
     user = UserInfo.objects.first()
-    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'user': user, 'pages': page}
+    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news,'seo': seo, 'user': user, 'pages': page}
 
 
 def index(request):

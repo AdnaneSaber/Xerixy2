@@ -37,9 +37,72 @@ img {
   overflow: hidden;
   position: relative;
   top: 0;
-  z-index: -1;
+  z-index: 0;
   -webkit-clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 60%);
           clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 60%);
+}
+
+.landing .socialLinks {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: calc(45vh - 179px);
+  left: 0;
+  z-index: 9;
+}
+
+.landing .socialLinks .socialLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 15px;
+  margin-left: -140%;
+  -webkit-transition: margin-left .4s ease-in-out;
+  transition: margin-left .4s ease-in-out;
+}
+
+.landing .socialLinks .socialLink:hover {
+  margin-left: 0;
+}
+
+.landing .socialLinks .socialLink a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: #1D2228;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+
+.landing .socialLinks .socialLink img {
+  width: 30px;
+  margin-left: auto;
 }
 
 .landing .bgImage {
@@ -260,7 +323,6 @@ img {
 }
 
 .mission {
-  padding: 7vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -274,5 +336,57 @@ img {
   font-size: 2em;
   text-transform: uppercase;
   margin: 7vh auto;
+}
+
+.mission .parallax .slices {
+  height: 70vh;
+  background-image: url("/static/images/graphs.webp");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0 20%;
+}
+
+@media screen and (max-width: 700px) {
+  .mission .parallax .slices {
+    padding: 0 7%;
+  }
+}
+
+.mission .parallax .slices h1,
+.mission .parallax .slices p {
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
+
+.mission .parallax .slices p {
+  font-size: 30px;
+}
+
+.mission .parallax .slices:nth-child(even) {
+  background-image: url("/static/images/spetch.webp");
+}
+
+.mission .parallax .slices::before {
+  content: "";
+  background-color: #0000005c;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 /*# sourceMappingURL=index.css.map */

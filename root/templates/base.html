@@ -120,16 +120,46 @@
                 {% for page in pages %}
                 <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
                 {% endfor %}
-                <!-- <li class="navLinksItem"><a href="">About</a></li>
-                <li class="navLinksItem"><a href="">our mission</a></li>
-                <li class="navLinksItem"><a href="">our team</a></li>
-                <li class="navLinksItem"><a href="">our projects</a></li> -->
                 <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
             </ul>
         </div>
     </nav>
     {% block content %}
     {% endblock content %}
+    <footer>
+        <div class="freeQuote" id="freeQuote">
+            <h3>CURIOUS? Get a free quote now.</h3>
+            <a href="{% url 'contact' %}">Get a quote</a>
+        </div>
+
+        <div class="footerContent">
+            <div class="navigation">
+                <h2>Navigation</h2>
+                <ul class="navLinksUl">
+                    <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="navLinksItem"><a href="{% url 'services' %}">Our offers</a></li>
+                    {% for page in pages %}
+                    <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
+                    {% endfor %}
+                    <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
+                </ul>
+            </div>
+            <div class="seoLinks">
+                <h2>Frequently asked questions</h2>
+                <ul id="seoL">
+                    {% for link in seo %}
+                    <li class="navLinksItem"><a href="{% url 'seo' link.url %}">{{link.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="footerLogo">
+            <a href="/" class="logo">
+                <img src="{% static 'logo/logo.png' %}" alt="{{user.nom_sur_site}}" title="{{user.nom_sur_site}}" />
+            </a>
+
+        </div>
+    </footer>
     <!-- lOCATOR :  This renders the location of the logged in user :D  -->
     <script>
         // jQuery.get("https://ipinfo.io", function (response) {

@@ -34,3 +34,8 @@ $(document).ready(function () {
     }
   });
 });
+let fqw = $("#seoL").height();
+console.log(fqw);
+if (fqw >= 200) {
+  $("#seoL").css("overflow-y", "scroll");
+}

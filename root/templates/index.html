@@ -11,6 +11,26 @@
 {% block content %}
 
 <div class="landing">
+    <div class="socialLinks">
+        <div class="socialLink">
+            <a href="https://www.instagram.com/xerixy/" target="_blank" rel="noopener noreferrer">
+                Instagram
+                <img src="{% static 'images/instagram.svg' %}" alt="">
+            </a>
+        </div>
+        <div class="socialLink">
+            <a href="https://www.facebook.com/Xerixy-101135438796636/" target="_blank" rel="noopener noreferrer">
+                Facebook
+                <img src="{% static 'images/facebook.svg' %}" alt="">
+            </a>
+        </div>
+        <div class="socialLink">
+            <a href="mailto:xerixy.sams@gmail.com" target="_blank" rel="noopener noreferrer">
+                Mail
+                <img src="{% static 'images/mail.svg' %}" alt="">
+            </a>
+        </div>
+    </div>
     <div class="bgImage">
         <img src="{% static 'images/banierre.webp' %}" alt="">
     </div>
@@ -54,15 +74,42 @@
     <div class="title">
         <h3>our mission</h3>
     </div>
+    <div class="parallax">
+        <div class="slices">
+            <h1>Project study</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
+                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
+        </div>
+        <div class="slices">
+            <h1>Sketching /UI</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
+                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
+        </div>
+        <div class="slices">
+            <h1>Conception</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
+                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
+        </div>
+        <div class="slices">
+            <h1>Delivery</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
+                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
+        </div>
+        <div class="slices">
+            <h1>Search Engine Optimization</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
+                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
+        </div>
+    </div>
 </div>
-<div class="team">
+<!-- <div class="team">
     <div class="title">
         <h3>our team</h3>
     </div>
-</div>
+</div> -->
 {% endblock %}
 
 {% block script %}
-<script src="{% static 'js/index.js' %}"></script>
 <script src="{% static 'js/paraxify.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock script %}
