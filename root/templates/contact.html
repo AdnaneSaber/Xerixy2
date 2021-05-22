@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<link rel="stylesheet" href="{% static 'css/services.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
 <title>Contact</title>
 {% endblock %}
 {% load crispy_forms_tags %}
@@ -15,12 +15,12 @@
     </button>
 </div>
 {% endif %}
-<div class="container d-f">
-    <div class="row m-auto">
+<div class="container">
+    <div class="subContainer">
         <form method="post" id="contact-form">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="submitButton">Submit</button>
         </form>
     </div>
 </div>

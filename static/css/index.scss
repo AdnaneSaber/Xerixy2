@@ -106,11 +106,9 @@ img {
 .about {
     display: flex;
     padding: 4%;
-    height: 70vh;
 
     @media screen and (max-width:$tablet) {
         flex-wrap: wrap;
-        height: 100vh;
 
         .aboutImage {
             width: 100% !important;
@@ -227,49 +225,5 @@ img {
         margin: 7vh auto;
     }
 
-    .animationContainer {
-        margin: auto;
-        position: relative;
-        width: 100%;
 
-        .animation {
-            display: flex;
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
-            width: 100%;
-
-            .cardContainer {
-                display: flex;
-                height: 100%;
-
-                .card {
-                    display: flex;
-                    flex-direction: column;
-                    height: 500px;
-                    margin: auto 3em;
-                    // position: absolute;
-                    width: 100vw;
-                    // left: 0;
-
-                    .number {
-                        position: absolute;
-                        font-size: 10em;
-                        color: #ccc;
-                        z-index: -1;
-                    }
-
-                    .cardTitle {
-                        margin: auto auto auto 0;
-                        font-size: 4.3em;
-                    }
-
-                    .cardContent {
-                        margin: 0 auto;
-                        font-size: 1.1em;
-                    }
-                }
-            }
-        }
-    }
 }

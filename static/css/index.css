@@ -128,14 +128,12 @@ img {
   display: -ms-flexbox;
   display: flex;
   padding: 4%;
-  height: 70vh;
 }
 
 @media screen and (max-width: 850px) {
   .about {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    height: 100vh;
   }
   .about .aboutImage {
     width: 100% !important;
@@ -276,58 +274,5 @@ img {
   font-size: 2em;
   text-transform: uppercase;
   margin: 7vh auto;
-}
-
-.mission .animationContainer {
-  margin: auto;
-  position: relative;
-  width: 100%;
-}
-
-.mission .animationContainer .animation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  width: 100%;
-}
-
-.mission .animationContainer .animation .cardContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-}
-
-.mission .animationContainer .animation .cardContainer .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 500px;
-  margin: auto 3em;
-  width: 100vw;
-}
-
-.mission .animationContainer .animation .cardContainer .card .number {
-  position: absolute;
-  font-size: 10em;
-  color: #ccc;
-  z-index: -1;
-}
-
-.mission .animationContainer .animation .cardContainer .card .cardTitle {
-  margin: auto auto auto 0;
-  font-size: 4.3em;
-}
-
-.mission .animationContainer .animation .cardContainer .card .cardContent {
-  margin: 0 auto;
-  font-size: 1.1em;
 }
 /*# sourceMappingURL=index.css.map */
