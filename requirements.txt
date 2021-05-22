@@ -45,7 +45,6 @@ parsy==1.1.0
 pathspec==0.8.1
 pep8==1.7.1
 Pillow==8.1.2
-psycopg2==2.8.6
 pycodestyle==2.7.0
 pycparser==2.20
 PyESCPOS==0.3
