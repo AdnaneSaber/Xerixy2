@@ -14,6 +14,7 @@ curlylint==0.12.2
 defusedxml==0.7.1
 dj-database-url==0.5.0
 Django==3.1.7
+-e git+https://github.com/jrief/django-admin-sortable2@86a44c759fc85f1a1ea87aaf78bd32b6daf7692b#egg=django_admin_sortable2
 django-allauth==0.44.0
 django-appconf==1.0.4
 django-compressor==2.4.1
@@ -44,7 +45,7 @@ parsy==1.1.0
 pathspec==0.8.1
 pep8==1.7.1
 Pillow==8.1.2
-psycopg2
+psycopg2==2.8.6
 pycodestyle==2.7.0
 pycparser==2.20
 PyESCPOS==0.3
