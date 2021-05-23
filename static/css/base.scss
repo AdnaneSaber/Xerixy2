@@ -2,6 +2,11 @@ $dark:#1D2228;
 $light:#8A8DA2;
 $darker:#140d17;
 
+body,
+html {
+    transition: all .4s ease-in-out;
+}
+
 * {
     box-shadow: none;
     margin: 0;
@@ -179,6 +184,8 @@ footer {
         right: 50%;
         transform: translateX(50%);
 
+
+
         @media screen and (max-width:700px) {
             position: relative;
             top: auto;
@@ -202,6 +209,12 @@ footer {
             padding: 15px 25px;
             margin-right: 5px;
             margin: auto;
+            transition: all .4s ease-in-out;
+
+            &:hover {
+                background-color: $dark;
+                color: #fff;
+            }
 
             @media screen and (max-width:750px) {
                 padding: 5px 15px;

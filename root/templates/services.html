@@ -3,21 +3,23 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/services.css' %}">
-<title>Nos services</title>
+<title>{{user.nom_sur_site | capfirst}} | {{self.title | capfirst}}</title>
 {% endblock %}
 {% block content %}
-<h1 class="text-center">this is the service page</h1>
+<div class="services">
+    <h1 class="servicesTitle" data-text="{{self.title | capfirst}}">{{self.title | capfirst}}</h1>
 
-<div class="row m-0">
-    {% for service in services %}
-    <div class="card mb-3 col-md-4 mx-auto">
-        <img src="{% static service.service_image %}" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">{{service.service_title}}</h5>
-            <p class="card-text">{{service.service_content}}</p>
-            <a href="{{service.service_url}}">Lire plus</a>
+    <div class="servicesContainer">
+        {% for service in services %}
+        <div class="service">
+            <img src="{% static service.service_image %}" class="service-img" alt="{{service.service_image_alt}}">
+            <div class="service-body">
+                <h3 class="service-title">{{service.service_title | capfirst}}</h3>
+                <p class="service-text">{{service.service_content | capfirst}}</p>
+                <a href="{% url 'service' service.service_url %}">Read more</a>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

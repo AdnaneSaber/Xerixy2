@@ -5,7 +5,7 @@
 {% block metaD %}{{self.page_meta_description}}{% endblock metaD %}
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/page.css' %}">
-<title>Xerixy | {{self.page_title | capfirst}}</title>
+<title>{{user.nom_sur_site | capfirst}} | {{self.page_title | capfirst}}</title>
 {% endblock %}
 
 {% block content %}

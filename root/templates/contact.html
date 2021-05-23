@@ -1,9 +1,9 @@
-{% extends "base.html" %}
+
 {% load static %}
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
-<title>Contact</title>
+<title>{{user.nom_sur_site | capfirst}} | {{self.title | capfirst}}</title>
 {% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
