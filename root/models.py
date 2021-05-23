@@ -11,7 +11,7 @@ from PIL import Image
 def assetSaver(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (datetime.now(), ext)
-    return filename
+    return os.path.join("static", filename)
 
 
 def faviconGenerator(instance, filename):
