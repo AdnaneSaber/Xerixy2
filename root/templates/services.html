@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}" type="text/css" charset="utf-8">
+{% endblock css %}
 {% block title %}
-<link rel="stylesheet" href="{% static 'css/services.css' %}">
 <title>{{user.nom_sur_site | capfirst}} | {{self.title | capfirst}}</title>
 {% endblock %}
 {% block content %}
