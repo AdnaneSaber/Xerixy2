@@ -271,7 +271,6 @@ img {
     .parallax {
         .slices {
             height: 70vh;
-            background-image: url('/static/images/graphs.webp');
             background-attachment: fixed;
             background-position: center center;
             background-size: cover;
@@ -295,10 +294,6 @@ img {
 
             p {
                 font-size: 30px;
-            }
-
-            &:nth-child(even) {
-                background-image: url('/static/images/spetch.webp');
             }
 
             &::before {
