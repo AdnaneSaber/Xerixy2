@@ -3,7 +3,7 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/services.css' %}">
-<title>gallery</title>
+<title>{{user.nom_sur_site | capfirst}} | {{gal.title | capfirst}}</title>
 {% endblock %}
 {% block content %}
 

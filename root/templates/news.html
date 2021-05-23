@@ -3,7 +3,7 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/news.css' %}">
-<title>{{news.post_title}}</title>
+<title>{{user.nom_sur_site | capfirst}} | {{news.post_title | capfirst}}</title>
 {% endblock %}
 {% block content %}
 <h1 class="text-center">{{news.post_title}}</h1>

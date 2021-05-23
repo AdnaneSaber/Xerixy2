@@ -109,7 +109,7 @@
         </button>
         <div class="navLinks" id="navLinks" data-state="uncollapsed">
             <div class="scrollLogo">
-                <a href="/" class="logo">
+                <a href="{% url 'index' %}" class="logo">
                     <img src="{% static 'logo/logo.png' %}" alt="{{user.nom_sur_site}}" title="{{user.nom_sur_site}}" />
                 </a>
             </div>

@@ -340,7 +340,6 @@ img {
 
 .mission .parallax .slices {
   height: 70vh;
-  background-image: url("/static/images/graphs.webp");
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
@@ -375,10 +374,6 @@ img {
 
 .mission .parallax .slices p {
   font-size: 30px;
-}
-
-.mission .parallax .slices:nth-child(even) {
-  background-image: url("/static/images/spetch.webp");
 }
 
 .mission .parallax .slices::before {
