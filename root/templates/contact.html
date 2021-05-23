@@ -20,6 +20,7 @@
         <form method="post" id="contact-form">
             {% csrf_token %}
             {{ form|crispy }}
+            <input type="hidden" name="location" id="loc">
             <button type="submit" class="submitButton">Submit</button>
         </form>
     </div>
@@ -28,15 +29,14 @@
 {% if success %}
 <script>
     document.getElementById("contact-form").reset();
-    console.log("done")
 </script>
 {% endif %}
 
-<input type="hidden" name="location" value="">
+<input type="hidden" name="location">
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script>
     $.get("https://ipinfo.io", function (response) {
-        console.log(response.city, response.country);
+        $('#loc').val(`${response.city} - ${response.country}`);
     }, "jsonp");
 </script>
 {% endblock %}

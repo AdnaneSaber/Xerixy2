@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     # 'corsheaders',
+    'captcha',
     'adminsortable2',
     'compressor',
     'chat',
@@ -171,3 +172,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = "/home/adn/chauffepro/static_files/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+RECAPTCHA_PUBLIC_KEY = '6LdZquUaAAAAAIzEl-UaOTrku4BG6OXmrMkA1TAv'
+RECAPTCHA_PRIVATE_KEY = '6LdZquUaAAAAALwWwI9DabW0XT_95dueHu-91Xu7'

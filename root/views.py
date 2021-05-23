@@ -21,9 +21,10 @@ def contact_view(request):
     context = {"self": "contact"}.copy()
     context.update(bases())
     form = ContactForm(request.POST or None, request.FILES or None)
-    location_json = json.loads(requests.get("https://ipinfo.io").text)
-    location = f"{location_json['city']} - {location_json['country']}"
+    # location_json = json.loads(requests.get("https://ipinfo.io").text)
+    # location = f"{location_json['city']} - {location_json['country']}"
     if form.is_valid():
+        location = request.POST.get("location")
         firstname = form.cleaned_data.get("firstName")
         lastname = form.cleaned_data.get("lastName")
         message = form.cleaned_data.get("message")
@@ -36,20 +37,20 @@ def contact_view(request):
         siteName = context['user'].nom_sur_site
         messageContent = \
             f"""
-        Hello Dear client,
-        this is a mail from {siteName}, you just received a lead, I'll let you check it out.
+                Hello Dear client,
+                this is a mail from {siteName}, you just received a lead, I'll let you check it out.
 
-        from : {firstname} {lastname}
-        interested by : {interestedBy}
-        phone number : {phone}
-        email : {mail}
-        message : {message}
-        location : {location}
-        --------------------------------------------------------
-        Well that was all for today,
-        you received this mail at {now}
-        _{siteName}_
-        Have a good day
+                from : {firstname} {lastname}
+                interested by : {interestedBy}
+                phone number : {phone}
+                email : {mail}
+                message : {message}
+                location : {location}
+                --------------------------------------------------------
+                Well that was all for today,
+                you received this mail at {now}
+                _{siteName}_
+                Have a good day
         """
         emain_to = UserInfo.objects.first().email
         email_from = settings.EMAIL_HOST_USER
@@ -70,7 +71,7 @@ def bases():
     page = Page.objects.all()
     seo = SeoLink.objects.all()
     user = UserInfo.objects.first()
-    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news,'seo': seo, 'user': user, 'pages': page}
+    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'seo': seo, 'user': user, 'pages': page}
 
 
 def index(request):
