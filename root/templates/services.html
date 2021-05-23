@@ -14,7 +14,7 @@
     <div class="servicesContainer">
         {% for service in services %}
         <div class="service">
-            <img src="{% static service.service_image %}" class="service-img" alt="{{service.service_image_alt}}">
+            <img src="{% static service.service_image.url %}" class="service-img" alt="{{service.service_image_alt}}">
             <div class="service-body">
                 <h3 class="service-title">{{service.service_title | capfirst}}</h3>
                 <p class="service-text">{{service.service_content | capfirst}}</p>

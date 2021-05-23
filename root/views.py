@@ -84,7 +84,7 @@ def service_view(request, service_url):
     queryset = Service.objects.get(service_url=service_url)
     context = {"service": queryset}.copy()
     context.update(bases())
-        # for local and ssh
+    # for local and ssh
     for s in context['services']:
         if not "enand" in s.service_image:
             s.service_image = str(s.service_image).replace(
