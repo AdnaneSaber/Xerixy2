@@ -1,19 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block idBody %}{{self.id}}{% endblock idBody %}
+{% block metaT %}{{self.page_meta_title}}{% endblock metaT %}
+{% block metaD %}{{self.page_meta_description}}{% endblock metaD %}
 {% block title %}
-<link rel="stylesheet" href="{% static 'css/services.css' %}">
-<title>{{user.nom_sur_site | capfirst}} | {{link.title | capfirst}}</title>
+<link rel="stylesheet" href="{% static 'css/seo.css' %}">
+<title>{{user.nom_sur_site | capfirst}} | {{self.page_title | capfirst}}</title>
 {% endblock %}
-{% block content %}
-<h1 class="text-center">{{link.title}}</h1>
 
-<div class="row m-0">
-    <div class="card mb-3 col-md-4 mx-auto">
-        <div class="card-body">
-            <h5 class="card-title">{{link.title}}</h5>
-            <p class="card-text">{{link.content}}</p>
-        </div>
-    </div>
+{% block content %}
+<div class="contentContainer" id="content-{{link.id}}">
+    <h4 data-text="{{link.title}}">{{link.title}}</h4>
+    <p>{{link.content}}</p>
 </div>
+
 {% endblock %}

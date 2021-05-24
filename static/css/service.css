@@ -13,12 +13,27 @@
   font-size: 50px;
   color: #fff;
   text-align: center;
+  position: relative;
 }
 
 @media screen and (max-width: 700px) {
   .srvs h1 {
     font-size: 30px;
   }
+}
+
+.srvs h1::before {
+  content: attr(data-text);
+  position: absolute;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  font-size: 65px;
+  color: #ccc3;
+  z-index: 0;
+  top: -21px;
+  letter-spacing: 4px;
+  white-space: nowrap;
 }
 
 .srvs .srvsContainer {

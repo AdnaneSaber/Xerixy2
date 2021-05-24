@@ -12,7 +12,7 @@
 {% endblock %}
 {% block content %}
 <div class="srvs">
-    <h1 class="srvs-title">{{service.service_title | capfirst}}</h1>
+    <h1 class="srvs-title" data-text="{{service.service_title | capfirst}}">{{service.service_title | capfirst}}</h1>
 
     <div class="srvsContainer">
             <p class="srvs-text">{{service.service_content | capfirst}}</p>

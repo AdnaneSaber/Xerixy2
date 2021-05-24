@@ -11,7 +11,7 @@
 {% block content %}
 {% for val in data %}
 <div class="contentContainer" id="content-{{val.id}}">
-    <h4>{{val.content_title}}</h4>
+    <h4 data-text="{{val.content_title}}">{{val.content_title}}</h4>
     <p>{{val.content}}</p>
 </div>
 {% endfor %}

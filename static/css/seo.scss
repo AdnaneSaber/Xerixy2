@@ -4,7 +4,7 @@ $darker:#140d17;
 
 .contentContainer {
     background-color: $dark;
-    padding: 50px 160px 100px;
+    padding: 50px 100px 100px;
 
     @media screen and (max-width:700px) {
         padding: 20px;
@@ -15,21 +15,9 @@ $darker:#140d17;
         width: 100%;
         text-align: center;
         position: relative;
-        font-size: 50px;
+        font-size: 30px;
         text-transform: uppercase;
         margin: 0 0 30px 0;
-
-        &::before {
-            content: attr(data-text);
-            position: absolute;
-            right: 50%;
-            transform: translateX(50%);
-            font-size: 65px;
-            color: #ccc3;
-            z-index: 0;
-            top: -21px;
-            letter-spacing: 4px;
-        }
     }
 
     p {
