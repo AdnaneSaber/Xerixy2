@@ -89,6 +89,24 @@ class New(models.Model):
         return self.post_title
 
 
+class Combination(models.Model):
+    keywords = models.TextField()
+    prepositions = models.TextField()
+    locations = models.TextField()
+    
+    def save(self, *args, **kwargs):
+        keywords = str(self.keywords).replace("\r","").split('\n')
+        prepositions = str(self.prepositions).replace("\r","").split('\n')
+        locations = str(self.locations).replace("\r","").split('\n')
+        p_c = []
+        for i in range(len(locations)):
+            p_c.append(f"{prepositions[i]} {locations[i]}")
+        SeoLink.objects.all().delete()
+        for y in keywords:
+            for j in p_c:
+                SeoLink.objects.create(title=f"{y} {j}")
+        super().save(*args, **kwargs)
+
 class Service(models.Model):
     service_title = models.CharField(
         max_length=255, blank=False, null=False, unique=True)
