@@ -19,6 +19,7 @@ import shlex
 
 def form_view(request):
     context = {}
+    context.update(bases())
     form = ContactForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         location = request.POST.get("location")
