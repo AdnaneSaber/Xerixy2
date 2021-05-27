@@ -17,7 +17,7 @@
     <div class="srvsContainer">
             <p class="srvs-text">{{service.service_content | capfirst}}</p>
         <img src="{% static service.service_image %}" class="srvs-img-top"
-            alt="{% static 'service.service_image_alt' %}">
+            alt="{% static 'service.service_image_alt' %}" />
 
         <a href="{% url 'services' %}">Back</a>
     </div>

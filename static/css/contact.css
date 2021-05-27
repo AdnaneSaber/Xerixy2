@@ -34,6 +34,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-family: Montserrat;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.container .subContainer form span.asteriskField {
+  color: transparent;
 }
 
 .container .subContainer form input,
@@ -43,6 +52,22 @@
   padding: 10px;
   width: 100%;
   min-width: 350px;
+  background: #fff;
+  border: none !important;
+  border-bottom: 1px solid #ffffff !important;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  width: 100% !important;
+  font-size: inherit;
+  color: #000;
+  border: 0;
+}
+
+.container .subContainer form input:focus,
+.container .subContainer form textarea:focus,
+.container .subContainer form select:focus {
+  outline: none;
 }
 
 .container .subContainer form .form-group {
