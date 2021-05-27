@@ -304,17 +304,22 @@ img {
 
 .about .aboutImage {
   width: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .about .aboutImage img {
   width: 100%;
-  height: 100%;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
   -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
+  max-width: 500px;
+  margin: auto;
 }
 
 .about .aboutImage img:hover {
