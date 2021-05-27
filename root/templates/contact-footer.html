@@ -1,14 +1,8 @@
-{% extends "base.html" %}
 {% load static %}
 
-{% block css %}
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
-{% endblock css %}
-{% block title %}
 <title>{{user.nom_sur_site | capfirst}} | {{self.title | capfirst}}</title>
-{% endblock title %}
 {% load crispy_forms_tags %}
-{% block content %}
 {% if success %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Message sent!</strong> The form has been submited successfully.
@@ -22,11 +16,11 @@
     <p>Send us a mail for more informations, we will get back to you as soon as possible to answer your welcomed
         questions !</p>
     <div class="contactContent">
+        {% if self == 'contact' %}
         <div class="imgContainer">
-            {% if self == 'contact' %}
             <img src="{% static 'images/contact.webp' %}" alt="contact us - Xerixy">
-            {% endif %}
         </div>
+        {% endif %}
         <div class="subContainer">
             <form method="post" id="contact-form" {%  if self == 'contact'  %}
                 style="display: flex; flex-direction: column;" {% endif %}>
@@ -56,4 +50,3 @@
         $('#loc').val(`${response.city} - ${response.country}`);
     }, "jsonp");
 </script>
-{% endblock content %}

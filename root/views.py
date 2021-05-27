@@ -17,12 +17,9 @@ import subprocess
 import shlex
 
 
-def contact_view(request):
-    context = {"self": "contact"}.copy()
-    context.update(bases())
+def form_view(request):
+    context = {}
     form = ContactForm(request.POST or None, request.FILES or None)
-    # location_json = json.loads(requests.get("https://ipinfo.io").text)
-    # location = f"{location_json['city']} - {location_json['country']}"
     if form.is_valid():
         location = request.POST.get("location")
         firstname = form.cleaned_data.get("firstName")
@@ -60,10 +57,16 @@ def contact_view(request):
         form.save()
         form = ContactForm()
     context['form'] = form
+    return context
+
+def contact_view(request):
+    context = {"self": "contact"}.copy()
+    context.update(bases(request))
+    context.update(form_view(request))
     return render(request, "contact.html", context)
 
 
-def bases():
+def bases(request):
     gallery = Gallery.objects.all()
     services = Service.objects.all()
     link_query = SeoLink.objects.all()
@@ -71,19 +74,22 @@ def bases():
     page = Page.objects.all()
     seo = SeoLink.objects.all()
     user = UserInfo.objects.first()
-    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'seo': seo, 'user': user, 'pages': page}
+    context = {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'seo': seo, 'user': user, 'pages': page}
+    context.update(form_view(request))
+    return context
 
 
 def index(request):
     context = {"self": "index"}.copy()
-    context.update(bases())
+    context.update(bases(request))
+    context.update(form_view(request))
     return render(request, "index.html", context=context)
 
 
 def service_view(request, service_url):
     queryset = Service.objects.get(service_url=service_url)
     context = {"service": queryset}.copy()
-    context.update(bases())
+    context.update(bases(request))
     if not queryset:
         raise Http404
     return render(request, "service.html", context=context)
@@ -91,32 +97,32 @@ def service_view(request, service_url):
 
 def services(request):
     context = {"self": "services"}.copy()
-    context.update(bases())
+    context.update(bases(request))
     return render(request, "services.html", context=context)
 
 
 def news(request):
     context = {"self": "news"}.copy()
-    context.update(bases())
+    context.update(bases(request))
     return render(request, "news.html", context=context)
 
 
 def news(request):
     context = {"self": "news"}.copy()
-    context.update(bases())
+    context.update(bases(request))
     return render(request, "news.html", context=context)
 
 
 def gallery_view(request):
     context = {"self": "gallery"}.copy()
-    context.update(bases())
+    context.update(bases(request))
     return render(request, "gallery.html", context=context)
 
 
 def seoLinks_view(request, link):
     link_query = SeoLink.objects.get(url=link)
     context = {"link": link_query}.copy()
-    context.update(bases())
+    context.update(bases(request))
     if not link_query:
         raise Http404
     return render(request, "seo.html", context=context)
@@ -161,7 +167,7 @@ def page_view(request, page_url):
             "content": contents[i].content,
         })
     context = {"self": queryset, "data": data}.copy()
-    context.update(bases())
+    context.update(bases(request))
     template = "page.html"
     for file in os.listdir(os.path.join(settings.BASE_DIR / __package__ / "templates")):
         if file == f"page-{queryset.id}.html":

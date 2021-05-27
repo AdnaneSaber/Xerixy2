@@ -234,6 +234,8 @@ footer .freeQuote {
   right: 50%;
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 700px) {

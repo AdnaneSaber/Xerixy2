@@ -1,26 +1,4 @@
-.container {
-  height: 100vh;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #1D2228;
-}
-
-.container .subContainer {
-  background-color: #fff;
-  width: 100%;
-  max-width: 75%;
-  border-radius: 8px;
-}
-
-.container .subContainer form {
+.contactContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,68 +6,208 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 0 70px;
+}
+
+.contactContainer h3 {
+  font-size: 2em;
+  text-transform: uppercase;
+  margin: 7vh auto 0 auto;
+}
+
+.contactContainer p {
+  margin: 30px auto;
+}
+
+.contactContainer .contactContent {
+  padding: 0 0 70px 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: Montserrat;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
+  background: #fff;
+  position: relative;
 }
 
-.container .subContainer form span.asteriskField {
+.contactContainer .contactContent .imgContainer {
+  position: relative;
+  width: 100%;
+  height: 800px;
+}
+
+.contactContainer .contactContent .imgContainer img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.contactContainer .contactContent .subContainer {
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.contactContainer .contactContent .subContainer form {
+  font-family: Montserrat;
+  width: calc(100% - 20px);
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  max-width: 950px;
+      grid-template-areas: 'firstname firstname firstname intrested intrested intrested' 'lastname lastname lastname area area area' 'phone phone phone area area area' 'mail mail mail captch captch submit';
+  grid-gap: 10px;
+  padding: 10px;
+      grid-template-areas: 'firstname firstname firstname intrested intrested intrested' 'lastname lastname lastname area area area' 'phone phone phone area area area' 'mail mail mail captch captch submit';
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 725px) {
+  .contactContainer .contactContent .subContainer form {
+    max-width: 450px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.contactContainer .contactContent .subContainer form #div_id_firstName {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: firstname;
+}
+
+.contactContainer .contactContent .subContainer form #div_id_lastName {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: lastname;
+}
+
+.contactContainer .contactContent .subContainer form #div_id_phone {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: phone;
+}
+
+.contactContainer .contactContent .subContainer form #div_id_mail {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: mail;
+}
+
+.contactContainer .contactContent .subContainer form #div_id_interestedBy {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-area: intrested;
+}
+
+.contactContainer .contactContent .subContainer form #div_id_message {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-area: area;
+}
+
+.contactContainer .contactContent .subContainer form #div_id_captcha {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: captch;
+}
+
+.contactContainer .contactContent .subContainer form .submitButton {
+  -ms-grid-row: 4;
+  -ms-grid-column: 6;
+  grid-area: submit;
+}
+
+.contactContainer .contactContent .subContainer form span.asteriskField {
   color: transparent;
 }
 
-.container .subContainer form input,
-.container .subContainer form textarea,
-.container .subContainer form select {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 100%;
-  min-width: 350px;
-  background: #fff;
+@media screen and (max-width: 725px) {
+  .contactContainer .contactContent .subContainer form select {
+    min-width: calc(100% - 10px) !important;
+    height: 61px;
+  }
+}
+
+.contactContainer .contactContent .subContainer form textarea {
+  height: 130px;
+  width: calc(100% - 30px);
+}
+
+.contactContainer .contactContent .subContainer form input,
+.contactContainer .contactContent .subContainer form textarea,
+.contactContainer .contactContent .subContainer form select {
+  min-width: calc(100% - 10px - 20px);
+  background: transparent;
   border: none !important;
   border-bottom: 1px solid #ffffff !important;
   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  border-radius: 0px;
-  width: 100% !important;
   font-size: inherit;
   color: #000;
-  border: 0;
+  min-height: 40px;
+  padding: 10px !important;
+  margin: 5px;
+  position: relative;
+  margin-bottom: 0;
+  margin-top: 15px;
 }
 
-.container .subContainer form input:focus,
-.container .subContainer form textarea:focus,
-.container .subContainer form select:focus {
+.contactContainer .contactContent .subContainer form input:focus,
+.contactContainer .contactContent .subContainer form textarea:focus,
+.contactContainer .contactContent .subContainer form select:focus {
   outline: none;
 }
 
-.container .subContainer form .form-group {
+.contactContainer .contactContent .subContainer form .form-group {
   width: 100%;
-  max-width: 350px;
 }
 
-.container .subContainer form .form-group div {
+.contactContainer .contactContent .subContainer form .form-group div {
   width: 100%;
-  max-width: 350px;
 }
 
-.container .subContainer form label {
+.contactContainer .contactContent .subContainer form label {
   color: #1D2228;
+  display: none;
 }
 
-.container .subContainer form .submitButton {
+.contactContainer .contactContent .subContainer form .submitButton {
   background-color: #1D2228;
   border-radius: 5px;
   border: none;
   color: #fff;
   padding: 15px 45px;
   cursor: pointer;
+  border: 1px solid #fff;
+  -webkit-transition: background-color, color .4s, .4s ease-in-out;
+  transition: background-color, color .4s, .4s ease-in-out;
+}
+
+.contactContainer .contactContent .subContainer form .submitButton:hover {
+  background-color: #fff;
+  color: #1D2228;
+  border-color: #1D2228;
 }
 /*# sourceMappingURL=contact.css.map */

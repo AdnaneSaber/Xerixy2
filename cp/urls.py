@@ -30,7 +30,7 @@ urlpatterns = [
     path('maintenance/', include('maintenance_mode.urls')),
     path('gallery/', root_view.gallery_view),
     path('news/', root_view.news),
-    path('<str:link>', root_view.seoLinks_view, name="seo"),
+    path('frequent/<str:link>', root_view.seoLinks_view, name="seo"),
     path('services/<str:service_url>/', root_view.service_view, name="service"),
     path('todos/', include('tasks.urls')),
     path('<str:page_url>/', root_view.page_view, name="page")
