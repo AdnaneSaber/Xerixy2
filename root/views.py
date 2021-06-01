@@ -109,11 +109,13 @@ def news(request):
     return render(request, "news.html", context=context)
 
 
-def news(request):
-    context = {"self": "news"}.copy()
+def new(request, post_url):
+    context = {"self": "new"}.copy()
+    query = New.objects.get(post_url=post_url)
+    context = {"new":query}
     context.update(bases())
     context.update(form_view(request))
-    return render(request, "news.html", context=context)
+    return render(request, "new.html", context=context)
 
 
 def gallery_view(request):

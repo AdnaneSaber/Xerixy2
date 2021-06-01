@@ -116,10 +116,15 @@
             <button id="closeNav">&times;</button>
             <ul class="navLinksUl">
                 <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
+                {% if services %}
                 <li class="navLinksItem"><a href="{% url 'services' %}">Our offers</a></li>
+                {% endif %}
                 {% for page in pages %}
                 <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
                 {% endfor %}
+                {% if news %}
+                <li class="navLinksItem"><a href="{% url 'news' %}">Blog</a></li>
+                {% endif %}
                 <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
             </ul>
         </div>
@@ -137,10 +142,15 @@
                 <h2>Navigation</h2>
                 <ul class="navLinksUl">
                     <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
+                    {% if services %}
                     <li class="navLinksItem"><a href="{% url 'services' %}">Our offers</a></li>
+                    {% endif %}
                     {% for page in pages %}
                     <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
                     {% endfor %}
+                    {% if news %}
+                    <li class="navLinksItem"><a href="{% url 'news' %}">Blog</a></li>
+                    {% endif %}
                     <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
                 </ul>
             </div>

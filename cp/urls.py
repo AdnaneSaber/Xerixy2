@@ -17,6 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from root import views as root_view
 from django.views.generic.base import TemplateView
+from root.sitemaps import NewSitemap, PageSitemap, SeoLinkSitemap, ServiceSitemap, StaticSitemap
+from django.contrib.sitemaps.views import sitemap
+sitemaps = {
+    'page':PageSitemap,
+    'blog':NewSitemap,
+    'seo':SeoLinkSitemap,
+    'services':ServiceSitemap,
+    'static':StaticSitemap
+}
+
 urlpatterns = [
     path('', root_view.index, name="index"),
     path('api/', include('root.urls')),
@@ -28,10 +38,12 @@ urlpatterns = [
     path('contact/', root_view.contact_view, name='contact'),
     path('services/', root_view.services, name='services'),
     path('maintenance/', include('maintenance_mode.urls')),
-    path('gallery/', root_view.gallery_view),
-    path('news/', root_view.news),
+    path('gallery/', root_view.gallery_view, name='gallery'),
+    path('news/', root_view.news, name='news'),
+    path('new/<str:post_url>', root_view.new, name='new'),
     path('frequent/<str:link>', root_view.seoLinks_view, name="seo"),
     path('services/<str:service_url>/', root_view.service_view, name="service"),
     path('todos/', include('tasks.urls')),
-    path('<str:page_url>/', root_view.page_view, name="page")
+    path('<str:page_url>/', root_view.page_view, name="page"),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block metaT %}{{new.post_title}}{% endblock metaT %}
+{% block metaD %}{{new.post_content}}{% endblock metaD %}
+
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/service.css' %}">
+<title>{{user.nom_sur_site | capfirst}} | {{new.post_title | capfirst}}</title>
+{% endblock %}
+{% block content %}
+<div class="srvs">
+    <h1 class="srvs-title" data-text="{{new.post_title | capfirst}}">{{new.post_title | capfirst}}</h1>
+
+    <div class="srvsContainer">
+            <p class="srvs-text">{{new.post_content | capfirst}}</p>
+        <img src="{% static new.post_image %}" class="srvs-img-top"
+            alt="xerixy blog" />
+
+        <a href="{% url 'news' %}">Back</a>
+    </div>
+</div>
+
+{% include 'contact-footer.html' %}
+{% endblock %}

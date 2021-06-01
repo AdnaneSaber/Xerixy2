@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
     'crispy_forms',
     # 'corsheaders',
@@ -51,7 +52,9 @@ INSTALLED_APPS = [
     'root',
     'tasks',
     'maintenance_mode',
+    'django.contrib.sitemaps',
 ]
+SITE_ID = 1
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
