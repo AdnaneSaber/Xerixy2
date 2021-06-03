@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     # 'corsheaders',
+    'portfolio',
     'captcha',
     'adminsortable2',
     'compressor',
@@ -170,9 +171,11 @@ EMAIL_HOST_PASSWORD = "Adn123adn"
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    BASE_DIR / "tasks/templates/build/static"
+    BASE_DIR / "tasks/templates/build/static",
+    BASE_DIR / "portfolio/static"
 ]
-
+print(BASE_DIR / "portfolio/static")
+print('hh')
 STATIC_ROOT = "/home/adn/chauffepro/static_files/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

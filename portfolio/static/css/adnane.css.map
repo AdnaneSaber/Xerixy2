@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAC,iFAAI;AAEZ,AAAA,CAAC,CAAA;EACG,MAAM,EAAC,CAAC;EACR,OAAO,EAAE,CAAC;CACb",
+    "sources": [
+        "adnane.scss"
+    ],
+    "names": [],
+    "file": "adnane.css"
+}

@@ -30,6 +30,7 @@ sitemaps = {
 urlpatterns = [
     path('', root_view.index, name="index"),
     path('api/', include('root.urls')),
+    path('portfolio/', include('portfolio.urls')),
     path('chat/', include('chat.urls')),
     path('adminX/', admin.site.urls),
     path('adminXerixyUpdate/', root_view.update_view, name='update'),
