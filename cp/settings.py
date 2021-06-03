@@ -174,8 +174,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "tasks/templates/build/static",
     BASE_DIR / "portfolio/static"
 ]
-print(BASE_DIR / "portfolio/static")
-print('hh')
 STATIC_ROOT = "/home/adn/chauffepro/static_files/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
