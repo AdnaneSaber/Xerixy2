@@ -1,112 +1,147 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% load i18n %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" charset="utf-8">
-{% endblock css %}
-{% block title %}
+{% extends "base.html" %} {% load static %} {% load i18n %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{% static 'css/index.css' %}"
+  type="text/css"
+  charset="utf-8"
+/>
+{% endblock css %} {% block title %}
 <title>{{user.nom_sur_site}}</title>
-{% endblock title %}
-{% block content %}
+{% endblock title %} {% block content %}
 
 <div class="landing">
-    <div class="socialLinks">
-        <div class="socialLink">
-            <a href="https://www.instagram.com/xerixy/" target="_blank" rel="noopener noreferrer">
-                Instagram
-                <img src="{% static 'images/instagram.svg' %}" alt="">
-            </a>
-        </div>
-        <div class="socialLink">
-            <a href="https://www.facebook.com/Xerixy-101135438796636/" target="_blank" rel="noopener noreferrer">
-                Facebook
-                <img src="{% static 'images/facebook.svg' %}" alt="">
-            </a>
-        </div>
-        <div class="socialLink">
-            <a href="mailto:xerixy.sams@gmail.com" target="_blank" rel="noopener noreferrer">
-                Mail
-                <img src="{% static 'images/mail.svg' %}" alt="">
-            </a>
-        </div>
+  <div class="socialLinks">
+    <div class="socialLink">
+      <a
+        href="https://www.instagram.com/xerixy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+        <img src="{% static 'images/instagram.svg' %}" alt="" />
+      </a>
     </div>
-    <div class="bgImage">
-        <img src="{% static 'images/banierre.webp' %}" alt="">
+    <div class="socialLink">
+      <a
+        href="https://www.facebook.com/Xerixy-101135438796636/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+        <img src="{% static 'images/facebook.svg' %}" alt="" />
+      </a>
     </div>
-    <div class="quote">
-        <h2>your future <br />in our hands.</h2>
+    <div class="socialLink">
+      <a
+        href="mailto:xerixy.sams@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Mail
+        <img src="{% static 'images/mail.svg' %}" alt="" />
+      </a>
     </div>
-    <div class="secondQuote">
-        <h3>Xerisy gives you vision to a successful business</h3>
-    </div>
+  </div>
+  <div class="bgImage">
+    <img src="{% static 'images/banierre.webp' %}" alt="" />
+  </div>
+  <div class="quote">
+    <h2>your future <br />in our hands.</h2>
+  </div>
+  <div class="secondQuote">
+    <h3>Xerisy gives you vision to a successful business</h3>
+  </div>
 </div>
 <div class="salma">
-    <img src="{% static 'images/salma.svg' %}" alt="">
+  <img src="{% static 'images/salma.svg' %}" alt="" />
 </div>
 <div class="about">
-    <div class="aboutContentContainer">
-        <div class="aboutTitle">
-            <h3>about us</h3>
-        </div>
-        <div class="aboutContent">
-            <p>
-                Xerixy has vision to empower best entrepreneurial talents with freedom to improve digital businesses,
-                one company at a time, and to build digital sales growth for companies, from A to Z. with our successful
-                technics you will grow with us.
-            </p>
-        </div>
-        <div class="aboutButton">
-            <a href="{% url 'contact' %}">
-                Order now
-            </a>
-        </div>
+  <div class="aboutContentContainer">
+    <div class="aboutTitle">
+      <h3>about us</h3>
     </div>
-    <div class="aboutImage">
-        <img src="{% static 'images/aboutImage.webp' %}" alt="">
+    <div class="aboutContent">
+      <p>
+        Xerixy has vision to empower best entrepreneurial talents with freedom
+        to improve digital businesses, one company at a time, and to build
+        digital sales growth for companies, from A to Z. with our successful
+        technics you will grow with us.
+      </p>
     </div>
+    <div class="aboutButton">
+      <a href="{% url 'contact' %}"> Order now </a>
+    </div>
+  </div>
+  <div class="aboutImage">
+    <img src="{% static 'images/aboutImage.webp' %}" alt="" />
+  </div>
 </div>
 <div class="mission">
-    <div class="title">
-        <h3>our mission</h3>
+  <div class="title">
+    <h3>our mission</h3>
+  </div>
+  <div class="parallax">
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/projectStudy.webp' %}')"
+    >
+      <h1>Project study</h1>
+      <p>
+        We have the best project management specialists that will be following
+        and studying your project to soul to give you the best project juice!
+      </p>
     </div>
-    <div class="parallax">
-        <div class="slices" style="background-image: url('{% static 'images/projectStudy.webp' %}')">
-            <h1>Project study</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
-                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
-        </div>
-        <div class="slices" style="background-image: url('{% static 'images/sketch.webp' %}')">
-            <h1>Sketching /UI</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
-                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
-        </div>
-        <div class="slices" style="background-image: url('{% static 'images/conception.webp' %}')">
-            <h1>Conception</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
-                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
-        </div>
-        <div class="slices" style="background-image: url('{% static 'images/delivery.webp' %}')">
-            <h1>Delivery</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
-                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
-        </div>
-        <div class="slices" style="background-image: url('{% static 'images/seo.webp' %}')">
-            <h1>Search Engine Optimization</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nihil maxime rem amet harum eos qui,
-                aliquid magni consequuntur aliquam veritatis in omnis animi facilis!</p>
-        </div>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/sketch.webp' %}')"
+    >
+      <h1>Sketching /UI</h1>
+      <p>
+        we have the best skilled and talented design team and that will grant
+        your wish into a digital eye-catching template ready to be coded!
+      </p>
     </div>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/conception.webp' %}')"
+    >
+      <h1>Conception</h1>
+      <p>
+        we picked the most brilliant programmers who work with the best
+        programming systems to get you a clean code and a bugs free product
+      </p>
+    </div>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/delivery.webp' %}')"
+    >
+      <h1>Delivery</h1>
+      <p>
+        The delivery with a gift, that's what everyone needs, our gift is that
+        our SEO specialist will follow your visual growth in google and help you
+        be found in the first pages of google search to increase your traffic
+        and profit
+      </p>
+    </div>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/seo.webp' %}')"
+    >
+      <h1>Search Engine Optimization</h1>
+      <p>
+        Our SEO search engine Optimization specialist will help you after the
+        delivery to achieve a visual growth and get more traffic in google and
+        profit
+      </p>
+    </div>
+  </div>
 </div>
 <!-- <div class="team">
     <div class="title">
         <h3>our team</h3>
     </div>
 </div> -->
-{% include 'contact-footer.html' %}
-{% endblock content %}
-
-{% block script %}
+{% include 'contact-footer.html' %} {% endblock content %} {% block script %}
 <script src="{% static 'js/modernizr.js' %}"></script>
 <script src="{% static 'js/paraxify.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>

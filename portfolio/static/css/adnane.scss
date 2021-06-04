@@ -1,6 +1,138 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
+$dark:rgb(45,46,50);
+$green:#23BE53;
 *{
     margin:0;
     padding: 0;
+}
+body{
+    background-color:$dark;
+    nav{
+        display: flex;
+        padding: 30px;
+        .logo{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            width: 20%;
+            img{
+                filter: invert(1);
+            }
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: auto;
+            width: 60%;
+            justify-content: center;
+            li{
+                margin-right: 20px;
+                font-family: 'RobotoMono-bold';
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                    font-weight: bold;
+                    position: relative;
+                    &::before{
+                        content: "<  ";
+                        visibility: hidden;
+                        left: -15px;
+                        color: $green;
+                        font-weight: bold;
+    
+                    }
+                    &::after{
+                        content: "  />";
+                        visibility: hidden;
+                        right: -15px;
+                        color: $green;
+                        font-weight: bold;
+    
+                    }
+                    &:hover{
+                        &::after,&:before{
+                            visibility: visible;
+    
+                        }
+                    }
+                }
+            }
+        }
+        .socials {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .social{
+                width: 50%;
+                a{
+                    color: white;
+                    text-decoration: none;display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    &:hover{
+                        color: $green;
+                        filter: brightness(1.8);
+                    }
+                    span{
+                        font-family: 'RobotoMono-light';
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .landing{
+        display: flex;
+        width: 100%;
+        .content{
+            padding: 7%;
+            width: 36%;
+            h6{
+                background-color: $green;
+                padding: 3px;
+                color: $dark;
+                font-family: 'RobotoMono-light';
+                max-width: 150px;
+                text-align: center;
+                border-radius: 3px;
+            }
+            h1 {
+                font-family: 'RobotoMono-Regular';
+                color: #fff;
+                font-weight: lighter;
+                margin:30px 0;
+            }
+            small{
+                color: #ccc;
+                font-family: 'RobotoMono-light';
+                font-size: 10px;
+                margin:15px 0;
+            }
+        }
+        .dev{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7%;
+            width: 36%;
+            img {
+                &:nth-child(1) {
+                    order: 1;
+                }
+
+                &:nth-child(2) {
+                    order: 2;
+                }
+
+                &:nth-child(3) {
+                    order: 3;
+                }
+                width: 150px;
+            }
+        }
+    }
 }
