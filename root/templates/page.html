@@ -12,7 +12,7 @@
 {% for val in data %}
 <div class="contentContainer" id="content-{{val.id}}">
     <h4 data-text="{{val.content_title}}">{{val.content_title}}</h4>
-    <p>{{val.content}}</p>
+    <p>{{val.content | safe}}</p>
 </div>
 {% endfor %}
 

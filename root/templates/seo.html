@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load fill_vars %}
 {% block idBody %}{{self.id}}{% endblock idBody %}
 {% block metaT %}{{self.page_meta_title}}{% endblock metaT %}
 {% block metaD %}{{self.page_meta_description}}{% endblock metaD %}
@@ -11,7 +12,7 @@
 {% block content %}
 <div class="contentContainer" id="content-{{link.id}}">
     <h4 data-text="{{link.title}}">{{link.title}}</h4>
-    <p>{{link.content}}</p>
+    <p>{{link.content | vars}}</p>
 </div>
 
 {% include 'contact-footer.html' %}

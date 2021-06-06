@@ -1,4 +1,5 @@
 {% load static %}
+{% load fill_vars %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +56,66 @@
             <img src="{% static 'assets/python.png' %}" alt="">
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div class="intro">
+        <div class="tabs">
+            <div class="card">
+                <a href="">
+                    <div class="cardBody">
+                        <div class="title">
+                            <h4>Design</h4>
+                        </div>
+                        <div class="description">
+                            Create digital products with unique ideas
+                        </div>
+                    </div>
+                    <div class="cardCounter" id="valuee">
+                        100 {% fuck %} tt {% endfuck %}
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="">
+                    <div class="cardBody">
+                        <div class="title">
+                            <h4>Design</h4>
+                        </div>
+                        <div class="description">
+                            Create digital products with unique ideas
+                        </div>
+                    </div>
+                    <div class="cardCounter">
+                        50
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="">
+                    <div class="cardBody">
+                        <div class="title">
+                            <h4>Design</h4>
+                        </div>
+                        <div class="description">
+                            Create digital products with unique ideas
+                        </div>
+                    </div>
+                    <div class="cardCounter">
+                        3
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <h5>Intoduction</h5>
+            <h3>Hello ! I'm Adnane Saber</h3>
+            <h6>Each one of us has his own story. Well, here is some of mine.</h6>
+            <p>
+                this is the Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione dicta sint corrupti
+                doloribus cumque repellendus perferendis, quam fugit blanditiis praesentium.
+            </p>
+        </div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/anime.min.js' %}"></script>
     <script src="{% static 'js/adnane.js' %}"></script>
 </body>
 

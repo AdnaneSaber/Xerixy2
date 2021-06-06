@@ -360,13 +360,10 @@ footer .footerContent .seoLinks h2 {
 
 footer .footerContent .seoLinks ul {
   list-style-type: none;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  max-width: 500px;
+  max-width: 600px;
   max-height: 200px;
+  overflow-x: hidden;
+  padding-right: 20px;
   /* width */
   /* Track */
   /* Handle */
@@ -390,9 +387,7 @@ footer .footerContent .seoLinks ul::-webkit-scrollbar-thumb:hover {
 }
 
 footer .footerContent .seoLinks ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: inline;
   position: relative;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -405,7 +400,6 @@ footer .footerContent .seoLinks ul li:hover a {
 
 footer .footerContent .seoLinks ul li:after {
   content: " - ";
-  display: block;
   color: #fff;
   margin: 0 5px;
 }

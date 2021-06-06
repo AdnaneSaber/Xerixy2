@@ -93,11 +93,14 @@ class Combination(models.Model):
     keywords = models.TextField()
     prepositions = models.TextField()
     locations = models.TextField()
-    
+
+    def __str__(self):
+        return "Keywords and locations"
+
     def save(self, *args, **kwargs):
-        keywords = str(self.keywords).replace("\r","").split('\n')
-        prepositions = str(self.prepositions).replace("\r","").split('\n')
-        locations = str(self.locations).replace("\r","").split('\n')
+        keywords = str(self.keywords).replace("\r", "").split('\n')
+        prepositions = str(self.prepositions).replace("\r", "").split('\n')
+        locations = str(self.locations).replace("\r", "").split('\n')
         p_c = []
         for i in range(len(locations)):
             p_c.append(f"{prepositions[i]} {locations[i]}")
@@ -106,6 +109,7 @@ class Combination(models.Model):
             for j in p_c:
                 SeoLink.objects.create(title=f"{y} {j}")
         super().save(*args, **kwargs)
+
 
 class Service(models.Model):
     service_title = models.CharField(

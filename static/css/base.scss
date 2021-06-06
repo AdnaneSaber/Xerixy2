@@ -287,10 +287,10 @@ footer {
 
             ul {
                 list-style-type: none;
-                display: inline-flex;
-                flex-wrap: wrap;
-                max-width: 500px;
+                max-width: 600px;
                 max-height: 200px;
+                overflow-x: hidden;
+                padding-right: 20px;
 
                 /* width */
                 &::-webkit-scrollbar {
@@ -313,7 +313,7 @@ footer {
                 }
 
                 li {
-                    display: flex;
+                    display: inline;
                     position: relative;
                     align-items: center;
 
@@ -325,7 +325,7 @@ footer {
 
                     &:after {
                         content: " - ";
-                        display: block;
+                        // display: block;
                         color: #fff;
                         margin: 0 5px;
                     }
