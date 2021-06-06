@@ -8,7 +8,7 @@ $minipc:1200px;
 
 @for $i from 1 to 7 {
     h#{$i} {
-        font-family: Montserrat;
+        font-family: 'Montserrat-Bold';
     }
 }
 
@@ -287,12 +287,12 @@ img {
             @media screen and (max-width:700px) {
                 padding: 0 7%;
             }
-
             h1,
             p {
                 z-index: 2;
                 color: #fff;
                 text-align: center;
+                
             }
 
             p {

@@ -15,13 +15,13 @@ class ContactForm(forms.ModelForm):
             'lastName': _('Last name'),
             'mail': _('Mail address'),
             'phone': _('Phone number'),
-            'interestedBy': _('Intereseted by'),
+            'interestedBy': _('Interested by'),
             'message': _('Your message'),
         }
         widgets = {
-            'firstName': forms.TextInput(attrs={'placeholder': 'First name'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Phone number'}),
-            'lastName': forms.TextInput(attrs={'placeholder': 'Last name'}),
-            'mail': forms.TextInput(attrs={'placeholder': 'Mail address'}),
-            'message': forms.Textarea(attrs={'placeholder': 'Type your message...'}),
+            'firstName': forms.TextInput(attrs={'placeholder': _('First name')}),
+            'phone': forms.TextInput(attrs={'placeholder': _('Phone number')}),
+            'lastName': forms.TextInput(attrs={'placeholder': _('Last name')}),
+            'mail': forms.TextInput(attrs={'placeholder': _('Mail address')}),
+            'message': forms.Textarea(attrs={'placeholder': _('Type your message here')}),
         }

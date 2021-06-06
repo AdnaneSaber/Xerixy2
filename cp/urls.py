@@ -19,6 +19,8 @@ from root import views as root_view
 from django.views.generic.base import TemplateView
 from root.sitemaps import NewSitemap, PageSitemap, SeoLinkSitemap, ServiceSitemap, StaticSitemap
 from django.contrib.sitemaps.views import sitemap
+from django.conf.urls.i18n import i18n_patterns
+
 sitemaps = {
     'page':PageSitemap,
     'blog':NewSitemap,
@@ -28,11 +30,14 @@ sitemaps = {
 }
 
 urlpatterns = [
+    path('adminX/', admin.site.urls),
+]
+urlpatterns +=i18n_patterns(
+    
     path('', root_view.index, name="index"),
     path('api/', include('root.urls')),
     path('portfolio/', include('portfolio.urls')),
     path('chat/', include('chat.urls')),
-    path('adminX/', admin.site.urls),
     path('adminXerixyUpdate/', root_view.update_view, name='update'),
     path('robots.txt', TemplateView.as_view(
         template_name="robots.txt", content_type="text/plain")),
@@ -47,4 +52,5 @@ urlpatterns = [
     path('todos/', include('tasks.urls')),
     path('<str:page_url>/', root_view.page_view, name="page"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-]
+    prefix_default_language=False,
+)

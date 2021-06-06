@@ -46,10 +46,10 @@
     <img src="{% static 'images/banierre.webp' %}" alt="" />
   </div>
   <div class="quote">
-    <h2>your future <br />in our hands.</h2>
+    <h2>{% trans 'your future' %}<br />{% trans 'in our hands.' %}</h2>
   </div>
   <div class="secondQuote">
-    <h3>Xerixy gives you vision to a successful business</h3>
+    <h3>{% trans 'Xerixy gives you vision to a successful business' %}</h3>
   </div>
 </div>
 <div class="salma">
@@ -58,7 +58,7 @@
 <div class="about">
   <div class="aboutContentContainer">
     <div class="aboutTitle">
-      <h3>about us</h3>
+      <h3>{% trans 'about us' %}</h3>
     </div>
     <div class="aboutContent">
       <p>
@@ -78,60 +78,70 @@
 </div>
 <div class="mission">
   <div class="title">
-    <h3>our mission</h3>
+    <h3>{% trans 'our mission' %}</h3>
   </div>
   <div class="parallax">
     <div
       class="slices"
       style="background-image: url('{% static 'images/projectStudy.webp' %}')"
     >
-      <h1>Project study</h1>
+      <h1>{% trans 'Project study'|capfirst %} </h1>
       <p>
+        {% blocktranslate %}
         We have the best project management specialists that will be following
         and studying your project to soul to give you the best project juice!
+        {% endblocktranslate %}
       </p>
     </div>
     <div
       class="slices"
       style="background-image: url('{% static 'images/sketch.webp' %}')"
     >
-      <h1>Sketching /UI</h1>
+      <h1>{% trans 'sketching /UI'|capfirst %}</h1>
       <p>
-        we have the best skilled and talented design team and that will grant
+        {% blocktranslate %}
+        We have the best skilled and talented design team and that will grant
         your wish into a digital eye-catching template ready to be coded!
+        {% endblocktranslate %}
       </p>
     </div>
     <div
       class="slices"
       style="background-image: url('{% static 'images/conception.webp' %}')"
     >
-      <h1>Conception</h1>
+      <h1>{% trans 'Conception'|capfirst %}</h1>
       <p>
-        we picked the most brilliant programmers who work with the best
-        programming systems to get you a clean code and a bugs free product
+        {% blocktranslate %}
+          We picked the most brilliant programmers who work with the best
+          programming systems to get you a clean code and a bugs free product
+        {% endblocktranslate %}
       </p>
     </div>
     <div
       class="slices"
       style="background-image: url('{% static 'images/delivery.webp' %}')"
     >
-      <h1>Delivery</h1>
+      <h1>{% trans 'Delivery'|capfirst %}</h1>
       <p>
+        {% blocktranslate %}
         The delivery with a gift, that's what everyone needs, our gift is that
         our SEO specialist will follow your visual growth in google and help you
         be found in the first pages of google search to increase your traffic
         and profit
+        {% endblocktranslate %}
       </p>
     </div>
     <div
       class="slices"
       style="background-image: url('{% static 'images/seo.webp' %}')"
     >
-      <h1>Search Engine Optimization</h1>
+      <h1>{% trans 'Search Engine Optimization'|capfirst %}</h1>
       <p>
+        {% blocktranslate %}
         Our SEO search engine Optimization specialist will help you after the
         delivery to achieve a visual growth and get more traffic in google and
         profit
+        {% endblocktranslate %}
       </p>
     </div>
   </div>
