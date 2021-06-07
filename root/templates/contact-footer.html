@@ -33,7 +33,6 @@
     </div>
 </div>
 
-<script src="{% static 'js/jquery.min.js' %}"></script>
 {% if success %}
 <script>
     document.getElementById("contact-form").reset();
@@ -44,7 +43,9 @@
 {% endif %}
 
 <input type="hidden" name="location">
-<script src="{% static 'js/jquery.min.js' %}"></script>
+{% compress js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+{% endcompress %}
 <script>
     $.get("https://ipinfo.io", function (response) {
         $('#loc').val(`${response.city} - ${response.country}`);
