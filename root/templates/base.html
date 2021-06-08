@@ -116,17 +116,17 @@
             </div>
             <button id="closeNav">&times;</button>
             <ul class="navLinksUl">
-                <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
+                <li class="navLinksItem"><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
                 {% if services %}
-                <li class="navLinksItem"><a href="{% url 'services' %}">Our offers</a></li>
+                <li class="navLinksItem"><a href="{% url 'services' %}">{% trans 'Our offers' %}</a></li>
                 {% endif %}
                 {% for page in pages %}
-                <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
+                <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title as page_title %}{{page_title}}{% endblocktrans %}</a></li>
                 {% endfor %}
                 {% if news %}
-                <li class="navLinksItem"><a href="{% url 'news' %}">Blog</a></li>
+                <li class="navLinksItem"><a href="{% url 'news' %}">{% trans 'Blog' %}</a></li>
                 {% endif %}
-                <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
+                <li class="navLinksItem"><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
             </ul>
         </div>
     </nav>
@@ -134,32 +134,32 @@
     {% endblock content %}
     <footer>
         <div class="freeQuote" id="freeQuote">
-            <h3>CURIOUS? Get a free quote now.</h3>
-            <a href="{% url 'contact' %}">Get a quote</a>
+            <h3>{% trans 'CURIOUS? Get a free quote now.' %}</h3>
+            <a href="{% url 'contact' %}">{% trans 'Get a quote' %}</a>
         </div>
 
         <div class="footerContent">
             <div class="navigation">
                 <h2>{% trans "Navigation" %}</h2>
                 <ul class="navLinksUl">
-                    <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="navLinksItem"><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
                     {% if services %}
-                    <li class="navLinksItem"><a href="{% url 'services' %}">Our offers</a></li>
+                    <li class="navLinksItem"><a href="{% url 'services' %}">{% trans 'Our offers' %}</a></li>
                     {% endif %}
                     {% for page in pages %}
-                    <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
+                    <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title as page_title %}{{page_title}}{% endblocktrans %}</a></li>
                     {% endfor %}
                     {% if news %}
-                    <li class="navLinksItem"><a href="{% url 'news' %}">Blog</a></li>
+                    <li class="navLinksItem"><a href="{% url 'news' %}">{% trans 'Blog' %}</a></li>
                     {% endif %}
-                    <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
+                    <li class="navLinksItem"><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
                 </ul>
             </div>
             <div class="seoLinks">
-                <h2>Frequently asked questions</h2>
+                <h2>{% trans 'Frequent searches' %}</h2>
                 <ul id="seoL">
                     {% for link in seo %}
-                    <li class="navLinksItem"><a href="{% url 'seo' link.url %}">{% trans link.title %}</a></li>
+                    <li class="navLinksItem"><a href="{% url 'seo' link.url %}">{% blocktrans with link.title as link_title %}{{link_title}}{% endblocktrans %}</a></li>
                     {% endfor %}
                 </ul>
             </div>

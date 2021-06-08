@@ -1,20 +1,20 @@
 {% load static %}
 {% load compress %}
+{% load i18n %} 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 <title>{{user.nom_sur_site | capfirst}} | {{self.title | capfirst}}</title>
 {% load crispy_forms_tags %}
 {% if success %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Message sent!</strong> The form has been submited successfully.
+    <strong>{% trans 'Message sent' %}!</strong>{% trans 'The form has been submited successfully.' %}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 {% endif %}
 <div class="contactContainer">
-    <h3>Contact us</h3>
-    <p>Send us a mail for more informations, we will get back to you as soon as possible to answer your welcomed
-        questions !</p>
+    <h3>{% trans 'Contact us' %}</h3>
+    <p>{% blocktranslate %}Send us a mail for more informations, we will get back to you as soon as possible to answer your welcomed questions !{% endblocktranslate %}</p>
     <div class="contactContent">
         {% if self == 'contact' %}
         <div class="imgContainer">
@@ -27,7 +27,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <input type="hidden" name="location" id="loc">
-                <button type="submit" class="submitButton">Submit</button>
+                <button type="submit" class="submitButton">{% trans 'Submit' %}</button>
             </form>
         </div>
     </div>
