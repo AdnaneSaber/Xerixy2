@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-08 07:38+0000\n"
+"POT-Creation-Date: 2021-06-08 08:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1518,69 +1518,87 @@ msgstr "Votre message"
 msgid "Type your message here"
 msgstr "Tapez votre message ici"
 
-#: .\root\templates\base.html:121 .\root\templates\base.html:147
+#: .\root\templates\base.html:122 .\root\templates\base.html:148
 msgid "Home"
 msgstr "Accueil"
 
-#: .\root\templates\base.html:123 .\root\templates\base.html:149
+#: .\root\templates\base.html:124 .\root\templates\base.html:150
 msgid "Our offers"
 msgstr "Nos offres"
 
-#: .\root\templates\base.html:126 .\root\templates\base.html:152
+#: .\root\templates\base.html:127 .\root\templates\base.html:153
 #, python-format
 msgid "%(page_title)s"
-msgstr ""
+msgid "ABOUT"
+msgstr "à propos"
 
-#: .\root\templates\base.html:129 .\root\templates\base.html:155
+
+#: .\root\templates\base.html:130 .\root\templates\base.html:156
 msgid "Blog"
 msgstr ""
 
-#: .\root\templates\base.html:131 .\root\templates\base.html:157
+#: .\root\templates\base.html:132 .\root\templates\base.html:158
 msgid "Contact"
 msgstr ""
 
-#: .\root\templates\base.html:139
+#: .\root\templates\base.html:140
 msgid "CURIOUS? Get a free quote now."
 msgstr "CURIEUX? Obtenez un devis gratuit maintenant."
 
-#: .\root\templates\base.html:140
+#: .\root\templates\base.html:141
 msgid "Get a quote"
 msgstr "Obtenez un devis"
 
-#: .\root\templates\base.html:145
+#: .\root\templates\base.html:146
 msgid "Navigation"
 msgstr "Accès rapide"
 
-#: .\root\templates\base.html:161
+#: .\root\templates\base.html:162
 msgid "Frequent searches"
 msgstr "Recherches fréquentes"
 
-#: .\root\templates\base.html:164
+#: .\root\templates\base.html:165
 #, python-format
 msgid "%(link_title)s"
 msgstr ""
 
-#: .\root\templates\contact-footer.html:8 .\root\templates\contact.html:15
-msgid "Message sent!"
-msgstr "Message envoyé!"
+#: .\root\templates\contact-footer.html:9 .\root\templates\contact.html:15
+#, fuzzy
+#| msgid "Message sent!"
+msgid "Message sent"
+msgstr "Message envoyé"
 
-#: .\root\templates\contact-footer.html:8 .\root\templates\contact.html:15
+#: .\root\templates\contact-footer.html:9 .\root\templates\contact.html:15
 msgid "The form has been submited successfully."
 msgstr "Le formulaire est envoyé avec succès"
 
-#: .\root\templates\contact-footer.html:15 .\root\templates\contact.html:22
+#: .\root\templates\contact-footer.html:16 .\root\templates\contact.html:22
 msgid "Contact us"
 msgstr "Contactez-nous"
 
-#: .\root\templates\contact-footer.html:16 .\root\templates\contact.html:23
+#: .\root\templates\contact-footer.html:17
 msgid ""
 "Send us a mail for more informations, we will get back to you as soon as "
 "possible to answer your welcomed questions !"
-msgstr "Envoyez-nous un mail pour plus d'informations, nous vous répondrons dans les plus brefs délais pour répondre à vos questions bienvenues ! "
+msgstr ""
+"Envoyez-nous un mail pour plus d'informations, nous vous répondrons dans les "
+"plus brefs délais pour répondre à vos questions bienvenues ! "
 
-#: .\root\templates\contact-footer.html:29 .\root\templates\contact.html:36
+#: .\root\templates\contact-footer.html:30 .\root\templates\contact.html:36
 msgid "Submit"
 msgstr "Envoyer"
+
+#: .\root\templates\contact.html:23
+#, fuzzy
+#| msgid ""
+#| "Send us a mail for more informations, we will get back to you as soon as "
+#| "possible to answer your welcomed questions !"
+msgid ""
+"Send us a mail for more information, we will get back to you as soon as "
+"possible to answer your welcome questions!"
+msgstr ""
+"Envoyez-nous un mail pour plus d'informations, nous vous répondrons dans les "
+"plus brefs délais pour répondre à vos questions bienvenues ! "
 
 #: .\root\templates\index.html:49
 msgid "your future"
@@ -1599,26 +1617,39 @@ msgid "about us"
 msgstr "à propos de nous"
 
 #: .\root\templates\index.html:65
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "        Xerixy has vision to empower best entrepreneurial talents with "
+#| "freedom\n"
+#| "        to improve digital businesses, one company at a time, and to "
+#| "build\n"
+#| "        digital sales growth for companies, from A to Z. with our "
+#| "successful\n"
+#| "        technics you will grow with us.\n"
+#| "        "
 msgid ""
 "\n"
-"        Xerixy has vision to empower best entrepreneurial talents with "
-"freedom\n"
-"        to improve digital businesses, one company at a time, and to build\n"
-"        digital sales growth for companies, from A to Z. with our "
-"successful\n"
-"        technics you will grow with us.\n"
+"        Xerixy has a vision to empower the best entrepreneurial talents with "
+"the freedom to improve digital businesses, one company at a time, and to "
+"build digital sales growth for companies, from A to Z. with our successful "
+"technics you will grow with us.\n"
 "        "
-msgstr "Xerixy a pour vision de donner aux meilleurs talents d'entrepreneur la liberté d'améliorer les entreprises numériques, une entreprise à la fois, et de générer une croissance des ventes numériques pour les entreprises, de A à Z. Grâce à nos techniques performantes, vous grandirez avec nous. "
+msgstr ""
+"Xerixy a pour vision de donner aux meilleurs talents d'entrepreneur la "
+"liberté d'améliorer les entreprises numériques, une entreprise à la fois, et "
+"de générer une croissance des ventes numériques pour les entreprises, de A à "
+"Z. Grâce à nos techniques performantes, vous grandirez avec nous. "
 
-#: .\root\templates\index.html:83
+#: .\root\templates\index.html:80
 msgid "our mission"
 msgstr "notre mission"
 
-#: .\root\templates\index.html:90
+#: .\root\templates\index.html:87
 msgid "Project study"
 msgstr "Etude de projet "
 
-#: .\root\templates\index.html:92
+#: .\root\templates\index.html:89
 msgid ""
 "\n"
 "        We have the best project management specialists that will be "
@@ -1631,11 +1662,11 @@ msgstr ""
 "exaucera votre souhait dans un modèle numérique accrocheur prêt à être "
 "codé ! "
 
-#: .\root\templates\index.html:102
+#: .\root\templates\index.html:99
 msgid "sketching /UI"
 msgstr ""
 
-#: .\root\templates\index.html:104
+#: .\root\templates\index.html:101
 msgid ""
 "\n"
 "        We have the best skilled and talented design team and that will "
@@ -1647,11 +1678,11 @@ msgstr ""
 "et qui exaucera votre souhait dans un modèle numérique accrocheur prêt à "
 "être codé !"
 
-#: .\root\templates\index.html:114
+#: .\root\templates\index.html:111
 msgid "Conception"
 msgstr ""
 
-#: .\root\templates\index.html:116
+#: .\root\templates\index.html:113
 msgid ""
 "\n"
 "          We picked the most brilliant programmers who work with the best\n"
@@ -1663,11 +1694,11 @@ msgstr ""
 "avec les meilleurs systèmes de programmation pour vous offrir un code propre "
 "et un produit sans bogues"
 
-#: .\root\templates\index.html:126
+#: .\root\templates\index.html:123
 msgid "Delivery"
 msgstr "Livraison "
 
-#: .\root\templates\index.html:128
+#: .\root\templates\index.html:125
 msgid ""
 "\n"
 "        The delivery with a gift, that's what everyone needs, our gift is "
@@ -1684,11 +1715,11 @@ msgstr ""
 "google et vous aidera à être trouvé dans les premières pages de recherche "
 "google pour augmenter votre trafic et votre profit "
 
-#: .\root\templates\index.html:140
+#: .\root\templates\index.html:137
 msgid "Search Engine Optimization"
 msgstr "optimisation du moteur de recherche "
 
-#: .\root\templates\index.html:142
+#: .\root\templates\index.html:139
 msgid ""
 "\n"
 "        Our SEO search engine Optimization specialist will help you after "
@@ -1701,3 +1732,9 @@ msgstr ""
 "Notre spécialiste de l'optimisation des moteurs de recherche SEO vous aidera "
 "après la livraison à atteindre une croissance visuelle et à obtenir plus de "
 "trafic sur google et de profit "
+
+#~ msgid "OUR TEAM"
+#~ msgstr "Notre équipe"
+
+#~ msgid "ABOUT"
+#~ msgstr "à propos"

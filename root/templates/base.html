@@ -4,6 +4,7 @@
 {% load i18n %}
 {% load compress %}
 {% load gtm_tags %}
+{% load fill_vars %}
 
 <head>
     <!-- Required meta tags -->
@@ -121,7 +122,7 @@
                 <li class="navLinksItem"><a href="{% url 'services' %}">{% trans 'Our offers' %}</a></li>
                 {% endif %}
                 {% for page in pages %}
-                <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title as page_title %}{{page_title}}{% endblocktrans %}</a></li>
+                <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title|template_trans as page_title %}{{page_title}}{% endblocktrans %}</a></li>
                 {% endfor %}
                 {% if news %}
                 <li class="navLinksItem"><a href="{% url 'news' %}">{% trans 'Blog' %}</a></li>
@@ -147,7 +148,7 @@
                     <li class="navLinksItem"><a href="{% url 'services' %}">{% trans 'Our offers' %}</a></li>
                     {% endif %}
                     {% for page in pages %}
-                    <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title as page_title %}{{page_title}}{% endblocktrans %}</a></li>
+                    <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title|template_trans as page_title %}{{page_title}}{% endblocktrans %}</a></li>
                     {% endfor %}
                     {% if news %}
                     <li class="navLinksItem"><a href="{% url 'news' %}">{% trans 'Blog' %}</a></li>
@@ -159,7 +160,7 @@
                 <h2>{% trans 'Frequent searches' %}</h2>
                 <ul id="seoL">
                     {% for link in seo %}
-                    <li class="navLinksItem"><a href="{% url 'seo' link.url %}">{% blocktrans with link.title as link_title %}{{link_title}}{% endblocktrans %}</a></li>
+                    <li class="navLinksItem"><a href="{% url 'seo' link.url %}">{% blocktrans with link.title|template_trans as link_title %}{{link_title}}{% endblocktrans %}</a></li>
                     {% endfor %}
                 </ul>
             </div>
