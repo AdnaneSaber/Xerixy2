@@ -13,8 +13,9 @@
 <div class="contentContainer" id="content-{{link.id}}">
     <h4 data-text="{{link.title}}">{{link.title}}</h4>
     <p>
-        {% with link.content | vars as content %}
+        {% with link.content|vars as content %}
         {{content | safe}}
+        {% endwith %}
     </p>
 </div>
 
