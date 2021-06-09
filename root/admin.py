@@ -1,5 +1,6 @@
 from django.contrib import admin
 from root.models import *
+from root.models import UserInfo as uf
 from adminsortable2.admin import SortableAdminMixin
 # Register your models here.
 
@@ -65,19 +66,19 @@ class MaintenanceAdmin(admin.ModelAdmin):
 class seoLinksAdmin(admin.ModelAdmin):
     list_display = ('title', 'contentLength', 'url')
     readonly_fields = ('contentLength', )
-    # user = UserInfo.objects.first()
-    # fieldsets = (
-    #         (None, {
-    #             'fields': ('title','url','content','meta_title','meta_description','contentLength'),
-    #             'description':
-    #                 f"""
-    #                 <h3>{{{{site_name}}}} : {user.nom_sur_site}</h3>
-    #                 <h3>{{{{email}}}} : {user.email}</h3>
-    #                 <h3>{{{{phone}}}} : {user.phone}</h3>
-    #                 <h3>{{{{adresse}}}} : {user.adresse_local}</h3>
-    #                 """
-    #         }),
-    #     )
+    user = uf.objects.first()
+    fieldsets = (
+            (None, {
+                'fields': ('title','url','content','meta_title','meta_description','contentLength'),
+                'description':
+                    f"""
+                    <h3>{{{{site_name}}}} : {user.nom_sur_site}</h3>
+                    <h3>{{{{email}}}} : {user.email}</h3>
+                    <h3>{{{{phone}}}} : {user.phone}</h3>
+                    <h3>{{{{adresse}}}} : {user.adresse_local}</h3>
+                    """
+            }),
+        )
     def thumbnailWordCounter(self, obj):
         return obj.contentLength
     thumbnailWordCounter.allow_tags = True

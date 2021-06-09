@@ -12,7 +12,10 @@
 {% block content %}
 <div class="contentContainer" id="content-{{link.id}}">
     <h4 data-text="{{link.title}}">{{link.title}}</h4>
-    <p>{{link.content | vars}}</p>
+    <p>
+        {% with link.content | vars as content %}
+        {{content | safe}}
+    </p>
 </div>
 
 {% include 'contact-footer.html' %}
