@@ -1,25 +1,25 @@
 h1 {
-  font-family: Montserrat;
+  font-family: 'Montserrat-Bold';
 }
 
 h2 {
-  font-family: Montserrat;
+  font-family: 'Montserrat-Bold';
 }
 
 h3 {
-  font-family: Montserrat;
+  font-family: 'Montserrat-Bold';
 }
 
 h4 {
-  font-family: Montserrat;
+  font-family: 'Montserrat-Bold';
 }
 
 h5 {
-  font-family: Montserrat;
+  font-family: 'Montserrat-Bold';
 }
 
 h6 {
-  font-family: Montserrat;
+  font-family: 'Montserrat-Bold';
 }
 
 * {
@@ -37,9 +37,72 @@ img {
   overflow: hidden;
   position: relative;
   top: 0;
-  z-index: -1;
+  z-index: 0;
   -webkit-clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 60%);
           clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 60%);
+}
+
+.landing .socialLinks {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: calc(45vh - 179px);
+  left: 0;
+  z-index: 9;
+}
+
+.landing .socialLinks .socialLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 15px;
+  margin-left: -140%;
+  -webkit-transition: margin-left .4s ease-in-out;
+  transition: margin-left .4s ease-in-out;
+}
+
+.landing .socialLinks .socialLink:hover {
+  margin-left: 0;
+}
+
+.landing .socialLinks .socialLink a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: #1D2228;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+
+.landing .socialLinks .socialLink img {
+  width: 30px;
+  margin-left: auto;
 }
 
 .landing .bgImage {
@@ -128,14 +191,12 @@ img {
   display: -ms-flexbox;
   display: flex;
   padding: 4%;
-  height: 70vh;
 }
 
 @media screen and (max-width: 850px) {
   .about {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    height: 100vh;
   }
   .about .aboutImage {
     width: 100% !important;
@@ -243,17 +304,22 @@ img {
 
 .about .aboutImage {
   width: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .about .aboutImage img {
   width: 100%;
-  height: 100%;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
   -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
+  max-width: 500px;
+  margin: auto;
 }
 
 .about .aboutImage img:hover {
@@ -262,7 +328,6 @@ img {
 }
 
 .mission {
-  padding: 7vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -278,30 +343,12 @@ img {
   margin: 7vh auto;
 }
 
-.mission .animationContainer {
-  margin: auto;
+.mission .parallax .slices {
+  height: 70vh;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
   position: relative;
-  width: 100%;
-}
-
-.mission .animationContainer .animation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  width: 100%;
-}
-
-.mission .animationContainer .animation .cardContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-}
-
-.mission .animationContainer .animation .cardContainer .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -309,25 +356,37 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 500px;
-  margin: auto 3em;
-  width: 100vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0 20%;
 }
 
-.mission .animationContainer .animation .cardContainer .card .number {
+@media screen and (max-width: 700px) {
+  .mission .parallax .slices {
+    padding: 0 7%;
+  }
+}
+
+.mission .parallax .slices h1,
+.mission .parallax .slices p {
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
+
+.mission .parallax .slices p {
+  font-size: 30px;
+}
+
+.mission .parallax .slices::before {
+  content: "";
+  background-color: #0000005c;
   position: absolute;
-  font-size: 10em;
-  color: #ccc;
-  z-index: -1;
-}
-
-.mission .animationContainer .animation .cardContainer .card .cardTitle {
-  margin: auto auto auto 0;
-  font-size: 4.3em;
-}
-
-.mission .animationContainer .animation .cardContainer .card .cardContent {
-  margin: 0 auto;
-  font-size: 1.1em;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 /*# sourceMappingURL=index.css.map */

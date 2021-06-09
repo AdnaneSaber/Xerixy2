@@ -4,6 +4,7 @@
 {% load i18n %}
 {% load compress %}
 {% load gtm_tags %}
+{% load fill_vars %}
 
 <head>
     <!-- Required meta tags -->
@@ -12,9 +13,10 @@
     <meta name="title" content="Xerixy | {% block metaT %}{% endblock metaT %}">
     <meta name="description" content="{% block metaD %}{% endblock metaD %}">
     {% comment %} Fonts {% endcomment %}
+    {% get_current_language as language %}
     <style>
         @font-face {
-            font-family: 'Montserrat';
+            font-family: 'Montserrat-Light';
             src: url({% static 'fonts/Montserrat-Light.eot' %});
             src: url({% static 'fonts/Montserrat-Light.eot?#iefix' %}) format('embedded-opentype'),
             url({% static 'fonts/Montserrat-Light.woff2' %}) format('woff2'),
@@ -38,7 +40,7 @@
         }
 
         @font-face {
-            font-family: 'Montserrat';
+            font-family: 'Montserrat-Black';
             src: url({% static 'fonts/Montserrat-Black.eot' %});
             src: url({% static 'fonts/Montserrat-Black.eot?#iefix' %}) format('embedded-opentype'),
             url({% static 'fonts/Montserrat-Black.woff2' %}) format('woff2'),
@@ -50,7 +52,7 @@
         }
 
         @font-face {
-            font-family: 'Montserrat';
+            font-family: 'Montserrat-Bold';
             src: url({% static 'fonts/Montserrat-Bold.eot' %});
             src: url({% static 'fonts/Montserrat-Bold.eot?#iefix' %}) format('embedded-opentype'),
             url({% static 'fonts/Montserrat-Bold.woff2' %}) format('woff2'),
@@ -109,27 +111,67 @@
         </button>
         <div class="navLinks" id="navLinks" data-state="uncollapsed">
             <div class="scrollLogo">
-                <a href="/" class="logo">
+                <a href="{% url 'index' %}" class="logo">
                     <img src="{% static 'logo/logo.png' %}" alt="{{user.nom_sur_site}}" title="{{user.nom_sur_site}}" />
                 </a>
             </div>
             <button id="closeNav">&times;</button>
             <ul class="navLinksUl">
-                <li class="navLinksItem"><a href="{% url 'index' %}">Home</a></li>
-                <li class="navLinksItem"><a href="{% url 'services' %}">Our offers</a></li>
+                <li class="navLinksItem"><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
+                {% if services %}
+                <li class="navLinksItem"><a href="{% url 'services' %}">{% trans 'Our offers' %}</a></li>
+                {% endif %}
                 {% for page in pages %}
-                <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{{page.page_title}}</a></li>
+                <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title|template_trans as page_title %}{{page_title}}{% endblocktrans %}</a></li>
                 {% endfor %}
-                <!-- <li class="navLinksItem"><a href="">About</a></li>
-                <li class="navLinksItem"><a href="">our mission</a></li>
-                <li class="navLinksItem"><a href="">our team</a></li>
-                <li class="navLinksItem"><a href="">our projects</a></li> -->
-                <li class="navLinksItem"><a href="{% url 'contact' %}">contact</a></li>
+                {% if news %}
+                <li class="navLinksItem"><a href="{% url 'news' %}">{% trans 'Blog' %}</a></li>
+                {% endif %}
+                <li class="navLinksItem"><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
             </ul>
         </div>
     </nav>
     {% block content %}
     {% endblock content %}
+    <footer>
+        <div class="freeQuote" id="freeQuote">
+            <h3>{% trans 'CURIOUS? Get a free quote now.' %}</h3>
+            <a href="{% url 'contact' %}">{% trans 'Get a quote' %}</a>
+        </div>
+
+        <div class="footerContent">
+            <div class="navigation">
+                <h2>{% trans "Navigation" %}</h2>
+                <ul class="navLinksUl">
+                    <li class="navLinksItem"><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
+                    {% if services %}
+                    <li class="navLinksItem"><a href="{% url 'services' %}">{% trans 'Our offers' %}</a></li>
+                    {% endif %}
+                    {% for page in pages %}
+                    <li class="navLinksItem"><a href="{% url 'page' page.page_url %}">{% blocktrans with page.page_title|template_trans as page_title %}{{page_title}}{% endblocktrans %}</a></li>
+                    {% endfor %}
+                    {% if news %}
+                    <li class="navLinksItem"><a href="{% url 'news' %}">{% trans 'Blog' %}</a></li>
+                    {% endif %}
+                    <li class="navLinksItem"><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+                </ul>
+            </div>
+            <div class="seoLinks">
+                <h2>{% trans 'Frequent searches' %}</h2>
+                <ul id="seoL">
+                    {% for link in seo %}
+                    <li class="navLinksItem"><a href="{% url 'seo' link.url %}">{% blocktrans with link.title|template_trans as link_title %}{{link_title}}{% endblocktrans %}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="footerLogo">
+            <a href="/" class="logo">
+                <img src="{% static 'logo/logo.png' %}" alt="{{user.nom_sur_site}}" title="{{user.nom_sur_site}}" />
+            </a>
+
+        </div>
+    </footer>
     <!-- lOCATOR :  This renders the location of the logged in user :D  -->
     <script>
         // jQuery.get("https://ipinfo.io", function (response) {

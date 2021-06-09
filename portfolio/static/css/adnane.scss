@@ -1,0 +1,229 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+$dark:rgb(45, 46, 50);
+$green:#23BE53;
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'RobotoMono-Regular';
+}
+
+body {
+    background-color: $dark;
+    position: relative;
+
+    nav {
+        display: flex;
+        padding: 30px;
+
+        .logo {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            width: 20%;
+
+            img {
+                filter: invert(1);
+            }
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: auto;
+            width: 60%;
+            justify-content: center;
+
+            li {
+                margin-right: 20px;
+                font-family: 'RobotoMono-bold';
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    font-weight: bold;
+                    position: relative;
+
+                    &::before {
+                        content: "<  ";
+                        visibility: hidden;
+                        left: -15px;
+                        color: $green;
+                        font-weight: bold;
+
+                    }
+
+                    &::after {
+                        content: "  />";
+                        visibility: hidden;
+                        right: -15px;
+                        color: $green;
+                        font-weight: bold;
+
+                    }
+
+                    &:hover {
+
+                        &::after,
+                        &:before {
+                            visibility: visible;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .socials {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .social {
+                width: 50%;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    &:hover {
+                        color: $green;
+                        filter: brightness(1.8);
+                    }
+
+                    span {
+                        font-family: 'RobotoMono-light';
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .landing {
+        display: flex;
+        width: 100%;
+        position: relative;
+
+        .content {
+            padding: 7%;
+            width: 36%;
+
+            h6 {
+                background-color: $green;
+                padding: 3px;
+                color: $dark;
+                font-family: 'RobotoMono-light';
+                max-width: 150px;
+                text-align: center;
+                border-radius: 3px;
+            }
+
+            h1 {
+                font-family: 'RobotoMono-Regular';
+                color: #fff;
+                font-weight: lighter;
+                margin: 30px 0;
+            }
+
+            small {
+                color: #ccc;
+                font-family: 'RobotoMono-light';
+                font-size: 10px;
+                margin: 15px 0;
+            }
+        }
+
+        .dev {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7%;
+            width: 36%;
+
+            img {
+                &:nth-child(1) {
+                    order: 1;
+                }
+
+                &:nth-child(2) {
+                    order: 2;
+                }
+
+                &:nth-child(3) {
+                    order: 3;
+                }
+
+                width: 150px;
+            }
+        }
+
+        .square {
+            right: 50%;
+            position: fixed;
+            width: 50px;
+            z-index: -9999;
+            height: 100px;
+            background-color: $dark;
+            box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.2);
+            // opacity: 0;
+        }
+
+    }
+
+    .intro {
+        display: flex;
+        align-items: center;
+
+        .tabs {
+            width: 50%;
+            padding: 50px;
+
+            .card {
+                background-color: rgb(84, 86, 92);
+                width: 80%;
+                border-radius: 5px;
+                height: 180px;
+                margin: 20px;
+                display: flex;
+                align-items: center;
+                // justify-content: center;
+                padding: 20px;
+                position: relative;
+                a {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    .cardBody{
+                        display: flex;
+                        flex-direction: column;
+                        width: 85%;
+                        height: 100%;
+                    }
+                    .cardCounter{
+                        min-width: 15%;
+                    }
+                }
+            }
+        }
+
+        .content {
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px;
+            width: 50%;
+        }
+    }
+}

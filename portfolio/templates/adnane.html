@@ -1,0 +1,125 @@
+{% load static %}
+{% load compress %}
+{% load fill_vars %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/adnane.css' %}">
+    <title>Adnane Saber - Porflio</title>
+</head>
+
+<body>
+    <style>
+        @font-face {
+            font-family: 'RobotoMono-bold';
+            src: url('{% static "fonts/RobotoMono-bold.ttf"%}');
+        }
+
+        @font-face {
+            font-family: 'RobotoMono-Regular';
+            src: url('{% static "fonts/RobotoMono-Regular.ttf"%}');
+        }
+
+        @font-face {
+            font-family: 'RobotoMono-Light';
+            src: url('{% static "fonts/RobotoMono-Light.ttf"%}');
+        }
+    </style>
+    <nav>
+        <div class="logo">
+            <img src="{% static 'assets/adnaneSignature.png' %}" alt="Adnane Saber" />
+        </div>
+        <ul class="navs">
+            <li><a href="">Services</a></li>
+            <li><a href="">Works</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        <div class="socials">
+            <div class="social"><a href="https://github.com/AdnaneSaber/" target="_blank"
+                    rel="noopener noreferrer"><span>Github</span><i class="fab fa-github"></i></a></div>
+            <div class="social"><a href="mailto:adnanesaber15@gmail.com"><span>Mail</span><i
+                        class="fas fa-envelope"></i></a></div>
+        </div>
+    </nav>
+    <div class="landing">
+        <div class="content">
+            <h6>Full-Stack Developer</h6>
+            <h1>Talk is cheap.</br>Show me the code</h1>
+            <small>I design and code beautifully simple things.</br>and I love what I do.</small>
+        </div>
+        <div class="dev">
+            <img src="{% static 'assets/django.png' %}" alt="">
+            <img src="{% static 'assets/node.png' %}" alt="">
+            <img src="{% static 'assets/python.png' %}" alt="">
+        </div>
+    </div>
+    <div class="intro">
+        <div class="tabs">
+            <div class="card">
+                <a href="">
+                    <div class="cardBody">
+                        <div class="title">
+                            <h4>Design</h4>
+                        </div>
+                        <div class="description">
+                            Create digital products with unique ideas
+                        </div>
+                    </div>
+                    <div class="cardCounter" id="valuee">
+                        100 {% fuck %} tt {% endfuck %}
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="">
+                    <div class="cardBody">
+                        <div class="title">
+                            <h4>Design</h4>
+                        </div>
+                        <div class="description">
+                            Create digital products with unique ideas
+                        </div>
+                    </div>
+                    <div class="cardCounter">
+                        50
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="">
+                    <div class="cardBody">
+                        <div class="title">
+                            <h4>Design</h4>
+                        </div>
+                        <div class="description">
+                            Create digital products with unique ideas
+                        </div>
+                    </div>
+                    <div class="cardCounter">
+                        3
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <h5>Intoduction</h5>
+            <h3>Hello ! I'm Adnane Saber</h3>
+            <h6>Each one of us has his own story. Well, here is some of mine.</h6>
+            <p>
+                this is the Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione dicta sint corrupti
+                doloribus cumque repellendus perferendis, quam fugit blanditiis praesentium.
+            </p>
+        </div>
+    </div>
+    {% compress js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/anime.min.js' %}"></script>
+    <script src="{% static 'js/adnane.js' %}"></script>
+    {% endcompress %}
+</body>
+
+</html>

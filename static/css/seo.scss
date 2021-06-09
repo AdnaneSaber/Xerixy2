@@ -1,0 +1,26 @@
+$dark:#1D2228;
+$light:#8A8DA2;
+$darker:#140d17;
+
+.contentContainer {
+    background-color: $dark;
+    padding: 50px 100px 100px;
+
+    @media screen and (max-width:700px) {
+        padding: 20px;
+    }
+
+    h4 {
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        margin: 0 0 30px 0;
+    }
+
+    p {
+        color: #fff;
+    }
+}

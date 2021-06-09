@@ -1,41 +1,60 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load compress %}
+{% load i18n %} 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock css %}
 {% block title %}
-<link rel="stylesheet" href="{% static 'css/services.css' %}">
-<title>Contact</title>
-{% endblock %}
+<title>{{user.nom_sur_site | capfirst}} | {{self.title | capfirst}}</title>
+{% endblock title %}
 {% load crispy_forms_tags %}
 {% block content %}
 {% if success %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Message sent!</strong> The form has been submited successfully.
+    <strong>{% trans 'Message sent' %}!</strong>{% trans 'The form has been submited successfully.' %}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 {% endif %}
-<div class="container d-f">
-    <div class="row m-auto">
-        <form method="post" id="contact-form">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+<div class="contactContainer">
+    <h3>{% trans 'Contact us' %}</h3>
+    <p>{% blocktranslate %}Send us a mail for more information, we will get back to you as soon as possible to answer your welcome questions!{% endblocktranslate %}</p>
+    <div class="contactContent">
+        <div class="imgContainer">
+            {% if self == 'contact' %}
+            <img src="{% static 'images/contact.webp' %}" alt="contact us - Xerixy">
+            {% endif %}
+        </div>
+        <div class="subContainer">
+            <form method="post" id="contact-form" {%  if self == 'contact'  %}
+                style="display: flex; flex-direction: column;" {% endif %}>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="hidden" name="location" id="loc">
+                <button type="submit" class="submitButton">{% trans 'Submit' %}</button>
+            </form>
+        </div>
     </div>
 </div>
 
 {% if success %}
 <script>
     document.getElementById("contact-form").reset();
-    console.log("done")
+    $('html, body').animate({
+        scrollTop: $("#contact-form").offset().top - $("#contact-form").height()
+    }, 1000);
 </script>
 {% endif %}
 
-<input type="hidden" name="location" value="">
+<input type="hidden" name="location">
+{% compress js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+{% endcompress %}
 <script>
     $.get("https://ipinfo.io", function (response) {
-        console.log(response.city, response.country);
+        $('#loc').val(`${response.city} - ${response.country}`);
     }, "jsonp");
 </script>
-{% endblock %}
+{% endblock content %}

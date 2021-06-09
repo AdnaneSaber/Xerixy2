@@ -8,7 +8,7 @@ $minipc:1200px;
 
 @for $i from 1 to 7 {
     h#{$i} {
-        font-family: Montserrat;
+        font-family: 'Montserrat-Bold';
     }
 }
 
@@ -27,8 +27,52 @@ img {
     overflow: hidden;
     position: relative;
     top: 0;
-    z-index: -1;
+    z-index: 0;
     clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 60%);
+
+    .socialLinks {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: calc(45vh - 179px);
+        left: 0;
+        z-index: 9;
+
+        .socialLink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px 10px 10px 15px;
+            margin-left: -140%;
+            transition: margin-left .4s ease-in-out;
+
+            &:hover {
+                margin-left: 0;
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: $dark;
+                font-weight: bold;
+                width: 100%;
+                height: 100%;
+
+            }
+
+            img {
+                width: 30px;
+                margin-left: auto;
+            }
+        }
+    }
 
     .bgImage {
         position: relative;
@@ -106,11 +150,9 @@ img {
 .about {
     display: flex;
     padding: 4%;
-    height: 70vh;
 
     @media screen and (max-width:$tablet) {
         flex-wrap: wrap;
-        height: 100vh;
 
         .aboutImage {
             width: 100% !important;
@@ -201,13 +243,16 @@ img {
 
     .aboutImage {
         width: 55%;
+        display: flex;
 
         img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             filter: grayscale(1);
             transition: .5s ease-in-out;
+            max-width: 500px;
+            margin: auto;
 
             &:hover {
                 filter: none;
@@ -217,7 +262,6 @@ img {
 }
 
 .mission {
-    padding: 7vh;
     display: flex;
     flex-direction: column;
 
@@ -227,49 +271,43 @@ img {
         margin: 7vh auto;
     }
 
-    .animationContainer {
-        margin: auto;
-        position: relative;
-        width: 100%;
-
-        .animation {
-            display: flex;
+    .parallax {
+        .slices {
+            height: 70vh;
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: cover;
             position: relative;
-            overflow: hidden;
-            height: 100vh;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 20%;
 
-            .cardContainer {
-                display: flex;
+            @media screen and (max-width:700px) {
+                padding: 0 7%;
+            }
+            h1,
+            p {
+                z-index: 2;
+                color: #fff;
+                text-align: center;
+                
+            }
+
+            p {
+                font-size: 30px;
+            }
+
+            &::before {
+                content: "";
+                background-color: #0000005c;
+                position: absolute;
+                width: 100%;
                 height: 100%;
-
-                .card {
-                    display: flex;
-                    flex-direction: column;
-                    height: 500px;
-                    margin: auto 3em;
-                    // position: absolute;
-                    width: 100vw;
-                    // left: 0;
-
-                    .number {
-                        position: absolute;
-                        font-size: 10em;
-                        color: #ccc;
-                        z-index: -1;
-                    }
-
-                    .cardTitle {
-                        margin: auto auto auto 0;
-                        font-size: 4.3em;
-                    }
-
-                    .cardContent {
-                        margin: 0 auto;
-                        font-size: 1.1em;
-                    }
-                }
+                z-index: 1;
             }
         }
     }
+
 }

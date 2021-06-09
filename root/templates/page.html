@@ -5,15 +5,16 @@
 {% block metaD %}{{self.page_meta_description}}{% endblock metaD %}
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/page.css' %}">
-<title>Xerixy | {{self.page_title | capfirst}}</title>
+<title>{{user.nom_sur_site | capfirst}} | {{self.page_title | capfirst}}</title>
 {% endblock %}
 
 {% block content %}
 {% for val in data %}
 <div class="contentContainer" id="content-{{val.id}}">
-    <h4>{{val.content_title}}</h4>
-    <p>{{val.content}}</p>
+    <h4 data-text="{{val.content_title}}">{{val.content_title}}</h4>
+    <p>{{val.content | safe}}</p>
 </div>
 {% endfor %}
 
+{% include 'contact-footer.html' %}
 {% endblock %}

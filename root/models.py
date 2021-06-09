@@ -10,7 +10,7 @@ from PIL import Image
 
 def assetSaver(instance, filename):
     ext = filename.split('.')[-1]
-    filename = "_%s.%s" % (datetime.now(), ext)
+    filename = "%s.%s" % (datetime.now(), ext)
     return os.path.join(settings.BASE_DIR / "static", filename)
 
 
@@ -87,6 +87,28 @@ class New(models.Model):
 
     def __str__(self):
         return self.post_title
+
+
+class Combination(models.Model):
+    keywords = models.TextField()
+    prepositions = models.TextField()
+    locations = models.TextField()
+
+    def __str__(self):
+        return "Keywords and locations"
+
+    def save(self, *args, **kwargs):
+        keywords = str(self.keywords).replace("\r", "").split('\n')
+        prepositions = str(self.prepositions).replace("\r", "").split('\n')
+        locations = str(self.locations).replace("\r", "").split('\n')
+        p_c = []
+        for i in range(len(locations)):
+            p_c.append(f"{prepositions[i]} {locations[i]}")
+        SeoLink.objects.all().delete()
+        for y in keywords:
+            for j in p_c:
+                SeoLink.objects.create(title=f"{y} {j}")
+        super().save(*args, **kwargs)
 
 
 class Service(models.Model):

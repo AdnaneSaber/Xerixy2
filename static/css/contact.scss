@@ -1,0 +1,183 @@
+$dark:#1D2228;
+$light:#8A8DA2;
+$darker:#140d17;
+
+
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 70px;
+
+    h3 {
+        font-size: 2em;
+        text-transform: uppercase;
+        margin: 7vh auto 0 auto;
+    }
+
+    p {
+        margin: 30px auto;
+    }
+
+    .contactContent {
+        padding: 0 0 70px 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        position: relative;
+
+        .imgContainer {
+            position: relative;
+            width: 100%;
+            height: 800px;
+
+            img {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .subContainer {
+            width: 100%;
+            background: #fff;
+            border-radius: 8px;
+
+            form {
+                font-family: Montserrat;
+                width: calc(100% - 20px);
+                margin: auto;
+                display: grid;
+                max-width: 950px;
+
+                @media screen and (max-width:725px) {
+
+                    max-width: 450px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                grid-template-areas: 'firstname firstname firstname intrested intrested intrested'
+                'lastname lastname lastname area area area'
+                'phone phone phone area area area'
+                'mail mail mail captch captch submit';
+                grid-gap: 10px;
+                padding: 10px;
+
+                #div_id_firstName {
+                    grid-area: firstname;
+                }
+
+                #div_id_lastName {
+                    grid-area: lastname;
+                }
+
+                #div_id_phone {
+                    grid-area: phone;
+                }
+
+                #div_id_mail {
+                    grid-area: mail;
+                }
+
+                #div_id_interestedBy {
+                    grid-area: intrested;
+                }
+
+                #div_id_message {
+                    grid-area: area;
+                }
+
+                #div_id_captcha {
+                    grid-area: captch;
+                }
+
+                .submitButton {
+                    grid-area: submit;
+                }
+
+                grid-template-areas: 'firstname firstname firstname intrested intrested intrested'
+                'lastname lastname lastname area area area'
+                'phone phone phone area area area'
+                'mail mail mail captch captch submit';
+                grid-gap: 10px;
+                padding: 10px;
+
+                span.asteriskField {
+                    color: transparent;
+                }
+
+                select {
+                    @media screen and (max-width:725px) {
+                        min-width: calc(100% - 10px) !important;
+
+                        height: 61px;
+                    }
+
+
+                }
+
+                textarea {
+                    height: 130px;
+                    width: calc(100% - 30px);
+                }
+
+                input,
+                textarea,
+                select {
+                    min-width: calc(100% - 10px - 20px);
+                    background: transparent;
+                    border: none !important;
+                    border-bottom: 1px solid #ffffff !important;
+                    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+                    font-size: inherit;
+                    color: #000;
+                    min-height: 40px;
+                    padding: 10px !important;
+                    margin: 5px;
+                    position: relative;
+                    margin-bottom: 0;
+                    margin-top: 15px;
+
+                    &:focus {
+
+                        outline: none;
+                    }
+                }
+
+                .form-group {
+
+                    width: 100%;
+
+                    div {
+                        width: 100%;
+                    }
+                }
+
+                label {
+                    color: $dark;
+                    display: none;
+                }
+
+                .submitButton {
+                    background-color: $dark;
+                    border-radius: 5px;
+                    border: none;
+                    color: #fff;
+                    padding: 15px 45px;
+                    cursor: pointer;
+                    border: 1px solid #fff;
+                    transition: background-color, color .4s, .4s ease-in-out;
+
+                    &:hover {
+                        background-color: #fff;
+                        color: $dark;
+                        border-color: $dark;
+                    }
+                }
+            }
+        }
+    }
+}

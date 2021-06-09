@@ -1,0 +1,81 @@
+.srvs {
+  padding: 70px;
+  background-color: #1D2228;
+}
+
+@media screen and (max-width: 700px) {
+  .srvs {
+    padding: 20px;
+  }
+}
+
+.srvs h1 {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+@media screen and (max-width: 700px) {
+  .srvs h1 {
+    font-size: 30px;
+  }
+}
+
+.srvs h1::before {
+  content: attr(data-text);
+  position: absolute;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  font-size: 65px;
+  color: #ccc3;
+  z-index: 0;
+  top: -21px;
+  letter-spacing: 4px;
+  white-space: nowrap;
+}
+
+.srvs .srvsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 500px;
+  padding: 70px;
+}
+
+@media screen and (max-width: 700px) {
+  .srvs .srvsContainer {
+    padding: 10px;
+    height: 400px;
+  }
+}
+
+.srvs .srvsContainer img {
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}
+
+.srvs .srvsContainer a {
+  margin: auto;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.srvs .srvsContainer a:hover {
+  background-color: #fff;
+  color: #1D2228;
+}
+/*# sourceMappingURL=service.css.map */

@@ -1,144 +1,157 @@
-{% extends "base.html" %}
-{% load static %}
-
-
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" charset="utf-8">
-{% endblock css %}
-{% block title %}
+{% extends "base.html" %} {% load static %} {% load i18n %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{% static 'css/index.css' %}"
+  type="text/css"
+  charset="utf-8"
+/>
+{% endblock css %} {% block title %}
 <title>{{user.nom_sur_site}}</title>
-{% endblock title %}
-{% block content %}
+{% endblock title %} {% block content %}
 
 <div class="landing">
-    <div class="bgImage">
-        <img src="{% static 'images/banierre.webp' %}" alt="">
+  <div class="socialLinks">
+    <div class="socialLink">
+      <a
+        href="https://www.instagram.com/xerixy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+        <img src="{% static 'images/instagram.svg' %}" alt="" />
+      </a>
     </div>
-    <div class="quote">
-        <h2>your future <br />in our hands.</h2>
+    <div class="socialLink">
+      <a
+        href="https://www.facebook.com/Xerixy-101135438796636/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+        <img src="{% static 'images/facebook.svg' %}" alt="" />
+      </a>
     </div>
-    <div class="secondQuote">
-        <h3>Xerisy gives you vision to a successful business</h3>
+    <div class="socialLink">
+      <a
+        href="mailto:xerixy.sams@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Mail
+        <img src="{% static 'images/mail.svg' %}" alt="" />
+      </a>
     </div>
+  </div>
+  <div class="bgImage">
+    <img src="{% static 'images/banierre.webp' %}" alt="" />
+  </div>
+  <div class="quote">
+    <h2>{% trans 'your future' %}<br />{% trans 'in our hands.' %}</h2>
+  </div>
+  <div class="secondQuote">
+    <h3>{% trans 'Xerixy gives you vision to a successful business' %}</h3>
+  </div>
 </div>
 <div class="salma">
-    <img src="{% static 'images/salma.svg' %}" alt="">
+  <img src="{% static 'images/salma.svg' %}" alt="" />
 </div>
 <div class="about">
-    <div class="aboutContentContainer">
-        <div class="aboutTitle">
-            <h3>about us</h3>
-        </div>
-        <div class="aboutContent">
-            <p>
-                Xerisy is a digital agency that will help you grow
-                your business with our digital solutions
-                and I really dont know what to write here
-                cs Adnane didn't want to give me a good speech
-                and it's been days I can't think and I feel lik im
-                having a blocked mind so im just trying to fill this
-                part where we gonna write sth nice after.
-            </p>
-        </div>
-        <div class="aboutButton">
-            <a href="">
-                Order now
-            </a>
-        </div>
+  <div class="aboutContentContainer">
+    <div class="aboutTitle">
+      <h3>{% trans 'about us' %}</h3>
     </div>
-    <div class="aboutImage">
-        <img src="{% static 'images/aboutImage.webp' %}" alt="">
+    <div class="aboutContent">
+      <p>
+        {% blocktranslate %}
+        Xerixy has a vision to empower the best entrepreneurial talents with the freedom to improve digital businesses, one company at a time, and to build digital sales growth for companies, from A to Z. with our successful technics you will grow with us.
+        {% endblocktranslate %}
+      </p>
     </div>
+    <div class="aboutButton">
+      <a href="{% url 'contact' %}"> Order now </a>
+    </div>
+  </div>
+  <div class="aboutImage">
+    <img src="{% static 'images/aboutImage.webp' %}" alt="" />
+  </div>
 </div>
 <div class="mission">
-    <div class="title">
-        <h3>our mission</h3>
+  <div class="title">
+    <h3>{% trans 'our mission' %}</h3>
+  </div>
+  <div class="parallax">
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/projectStudy.webp' %}')"
+    >
+      <h1>{% trans 'Project study'|capfirst %} </h1>
+      <p>
+        {% blocktranslate %}
+        We have the best project management specialists that will be following
+        and studying your project to soul to give you the best project juice!
+        {% endblocktranslate %}
+      </p>
     </div>
-    <div class="animationContainer">
-        <section class="animation">
-            <div class="cardContainer">
-                <div class="card">
-                    <div class="number">
-                        <h1>1</h1>
-                    </div>
-                    <div class="cardTitle">
-                        <h4>Project study </h4>
-                    </div>
-                    <div class="cardContent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit molestias cumque, est
-                            voluptates
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="number">
-                        <h1>2</h1>
-                    </div>
-                    <div class="cardTitle">
-                        <h4>Sketching /UI</h4>
-                    </div>
-                    <div class="cardContent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit molestias cumque, est
-                            voluptates
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="number">
-                        <h1>3</h1>
-                    </div>
-                    <div class="cardTitle">
-                        <h4>Conception</h4>
-                    </div>
-                    <div class="cardContent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit molestias cumque, est
-                            voluptates
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="number">
-                        <h1>4</h1>
-                    </div>
-                    <div class="cardTitle">
-                        <h4>Delivery</h4>
-                    </div>
-                    <div class="cardContent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit molestias cumque, est
-                            voluptates
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="number">
-                        <h1>5</h1>
-                    </div>
-                    <div class="cardTitle">
-                        <h4>Search Engine Optimization</h4>
-                    </div>
-                    <div class="cardContent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit molestias cumque, est
-                            voluptates
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/sketch.webp' %}')"
+    >
+      <h1>{% trans 'sketching /UI'|capfirst %}</h1>
+      <p>
+        {% blocktranslate %}
+        We have the best skilled and talented design team and that will grant
+        your wish into a digital eye-catching template ready to be coded!
+        {% endblocktranslate %}
+      </p>
     </div>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/conception.webp' %}')"
+    >
+      <h1>{% trans 'Conception'|capfirst %}</h1>
+      <p>
+        {% blocktranslate %}
+          We picked the most brilliant programmers who work with the best
+          programming systems to get you a clean code and a bugs free product
+        {% endblocktranslate %}
+      </p>
+    </div>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/delivery.webp' %}')"
+    >
+      <h1>{% trans 'Delivery'|capfirst %}</h1>
+      <p>
+        {% blocktranslate %}
+        The delivery with a gift, that's what everyone needs, our gift is that
+        our SEO specialist will follow your visual growth in google and help you
+        be found in the first pages of google search to increase your traffic
+        and profit
+        {% endblocktranslate %}
+      </p>
+    </div>
+    <div
+      class="slices"
+      style="background-image: url('{% static 'images/seo.webp' %}')"
+    >
+      <h1>{% trans 'Search Engine Optimization'|capfirst %}</h1>
+      <p>
+        {% blocktranslate %}
+        Our SEO search engine Optimization specialist will help you after the
+        delivery to achieve a visual growth and get more traffic in google and
+        profit
+        {% endblocktranslate %}
+      </p>
+    </div>
+  </div>
 </div>
-<div class="team">
+<!-- <div class="team">
     <div class="title">
         <h3>our team</h3>
     </div>
-</div>
-{% endblock %}
-
-{% block script %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/MotionPathPlugin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+</div> -->
+{% include 'contact-footer.html' %} {% endblock content %} {% block script %}
+<script src="{% static 'js/modernizr.js' %}"></script>
+<script src="{% static 'js/paraxify.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>
 {% endblock script %}

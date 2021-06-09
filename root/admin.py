@@ -1,5 +1,6 @@
 from django.contrib import admin
 from root.models import *
+from root.models import UserInfo as uf
 from adminsortable2.admin import SortableAdminMixin
 # Register your models here.
 
@@ -65,7 +66,19 @@ class MaintenanceAdmin(admin.ModelAdmin):
 class seoLinksAdmin(admin.ModelAdmin):
     list_display = ('title', 'contentLength', 'url')
     readonly_fields = ('contentLength', )
-
+    user = uf.objects.first()
+    fieldsets = (
+            (None, {
+                'fields': ('title','url','content','meta_title','meta_description','contentLength'),
+                'description':
+                    f"""
+                    <h3>{{{{site_name}}}} : {user.nom_sur_site}</h3>
+                    <h3>{{{{email}}}} : {user.email}</h3>
+                    <h3>{{{{phone}}}} : {user.phone}</h3>
+                    <h3>{{{{adresse}}}} : {user.adresse_local}</h3>
+                    """
+            }),
+        )
     def thumbnailWordCounter(self, obj):
         return obj.contentLength
     thumbnailWordCounter.allow_tags = True
@@ -82,6 +95,16 @@ class PageAdmin(SortableAdminMixin, admin.ModelAdmin):
     readonly_fields = ('page_url',)
     ordering = ['my_order']
 
+
+class CombinationAdmin(admin.ModelAdmin):
+    
+    def has_add_permission(self, request):
+        # if there's already an entry, do not allow adding
+        count = Combination.objects.all().count()
+        if count == 0:
+            return True
+        return False
+    pass
 
 class PageContentAdmin(admin.ModelAdmin):
     list_filter = ('page', )
@@ -100,3 +123,4 @@ admin.site.register(Service, ServiceAdmin)
 admin.site.register(SeoLink, seoLinksAdmin)
 admin.site.register(Maintenance, MaintenanceAdmin)
 admin.site.register(GitAccount, GitAdmin)
+admin.site.register(Combination,CombinationAdmin)

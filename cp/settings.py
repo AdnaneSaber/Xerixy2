@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
     'crispy_forms',
     # 'corsheaders',
+    'portfolio',
+    'captcha',
     'adminsortable2',
     'compressor',
     'chat',
@@ -50,7 +53,9 @@ INSTALLED_APPS = [
     'root',
     'tasks',
     'maintenance_mode',
+    'django.contrib.sitemaps',
 ]
+SITE_ID = 1
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
@@ -62,6 +67,7 @@ MIDDLEWARE = [
     # 'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -137,7 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -156,6 +162,9 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "noreplysamscms@gmail.com"
 EMAIL_HOST_PASSWORD = "Adn123adn"
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale")
+]
 # handler404 = 'root.views.handle_404'
 
 
@@ -166,8 +175,12 @@ EMAIL_HOST_PASSWORD = "Adn123adn"
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    BASE_DIR / "tasks/templates/build/static"
+    BASE_DIR / "tasks/templates/build/static",
+    BASE_DIR / "portfolio/static"
 ]
-
 STATIC_ROOT = "/home/adn/chauffepro/static_files/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+RECAPTCHA_PUBLIC_KEY = '6LdZquUaAAAAAIzEl-UaOTrku4BG6OXmrMkA1TAv'
+RECAPTCHA_PRIVATE_KEY = '6LdZquUaAAAAALwWwI9DabW0XT_95dueHu-91Xu7'

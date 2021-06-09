@@ -1,3 +1,9 @@
+body,
+html {
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
 * {
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -49,6 +55,7 @@ nav .logoContainer .logo {
 nav .logoContainer .logo img {
   width: auto;
   height: 100%;
+  max-width: 50px;
 }
 
 nav button {
@@ -87,6 +94,7 @@ nav .navLinks {
   padding: 0;
   width: 100%;
   position: relative;
+  z-index: 10;
 }
 
 nav .navLinks .scrollLogo {
@@ -137,7 +145,7 @@ nav .navLinks #closeNav {
 
 @media screen and (max-width: 800px) {
   nav .navLinks {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     left: 100%;
@@ -190,6 +198,226 @@ nav .navLinks .navLinksUl .navLinksItem a {
 .fixed {
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 99;
+}
+
+footer {
+  background-color: #1D2228;
+  position: relative;
+  padding: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer .freeQuote {
+  width: 100%;
+  max-width: 700px;
+  height: 80px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: -40px;
+  position: absolute;
+  z-index: 2;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 700px) {
+  footer .freeQuote {
+    position: relative;
+    top: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .freeQuote h3,
+  footer .freeQuote a {
+    font-size: 14px;
+  }
+}
+
+footer .freeQuote h3 {
+  margin: auto;
+}
+
+footer .freeQuote a {
+  background-color: transparent;
+  border: 3px solid #1D2228;
+  color: #1D2228;
+  text-decoration: none;
+  padding: 15px 25px;
+  margin-right: 5px;
+  margin: auto;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+footer .freeQuote a:hover {
+  background-color: #1D2228;
+  color: #fff;
+}
+
+@media screen and (max-width: 750px) {
+  footer .freeQuote a {
+    padding: 5px 15px;
+  }
+}
+
+footer .footerContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  footer .footerContent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+footer .footerContent .navigation {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+footer .footerContent .navigation h2 {
+  color: #fff;
+  margin: 30px 0;
+  text-decoration: underline;
+}
+
+footer .footerContent .navigation ul {
+  list-style-type: none;
+  display: inline-block;
+}
+
+footer .footerContent .navigation ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footerContent .navigation ul li:hover::before {
+  width: 20px;
+}
+
+footer .footerContent .navigation ul li:before {
+  content: "";
+  width: 0px;
+  height: 2px;
+  background-color: #fff;
+  display: inline-block;
+  -webkit-transition: width .4s ease-in-out;
+  transition: width .4s ease-in-out;
+}
+
+footer .footerContent .navigation ul li a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+footer .footerContent .seoLinks {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+footer .footerContent .seoLinks h2 {
+  color: #fff;
+  margin: 30px 0;
+  text-decoration: underline;
+}
+
+footer .footerContent .seoLinks ul {
+  list-style-type: none;
+  max-width: 600px;
+  max-height: 200px;
+  overflow-x: hidden;
+  padding-right: 20px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+footer .footerContent .seoLinks ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+footer .footerContent .seoLinks ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+footer .footerContent .seoLinks ul::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+footer .footerContent .seoLinks ul::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+footer .footerContent .seoLinks ul li {
+  display: inline;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footerContent .seoLinks ul li:hover a {
+  text-decoration: underline;
+}
+
+footer .footerContent .seoLinks ul li:after {
+  content: " - ";
+  color: #fff;
+  margin: 0 5px;
+}
+
+footer .footerContent .seoLinks ul li:last-child:after {
+  display: none;
+}
+
+footer .footerContent .seoLinks ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .footerLogo {
+  margin: auto;
+}
+
+footer .footerLogo a img {
+  width: 60px;
 }
 /*# sourceMappingURL=base.css.map */

@@ -17,13 +17,12 @@ import subprocess
 import shlex
 
 
-def contact_view(request):
-    context = {"self": "contact"}.copy()
+def form_view(request):
+    context = {}
     context.update(bases())
     form = ContactForm(request.POST or None, request.FILES or None)
-    location_json = json.loads(requests.get("https://ipinfo.io").text)
-    location = f"{location_json['city']} - {location_json['country']}"
     if form.is_valid():
+        location = request.POST.get("location")
         firstname = form.cleaned_data.get("firstName")
         lastname = form.cleaned_data.get("lastName")
         message = form.cleaned_data.get("message")
@@ -36,20 +35,20 @@ def contact_view(request):
         siteName = context['user'].nom_sur_site
         messageContent = \
             f"""
-        Hello Dear client,
-        this is a mail from {siteName}, you just received a lead, I'll let you check it out.
+                Hello Dear client,
+                this is a mail from {siteName}, you just received a lead, I'll let you check it out.
 
-        from : {firstname} {lastname}
-        interested by : {interestedBy}
-        phone number : {phone}
-        email : {mail}
-        message : {message}
-        location : {location}
-        --------------------------------------------------------
-        Well that was all for today,
-        you received this mail at {now}
-        _{siteName}_
-        Have a good day
+                from : {firstname} {lastname}
+                interested by : {interestedBy}
+                phone number : {phone}
+                email : {mail}
+                message : {message}
+                location : {location}
+                --------------------------------------------------------
+                Well that was all for today,
+                you received this mail at {now}
+                _{siteName}_
+                Have a good day
         """
         emain_to = UserInfo.objects.first().email
         email_from = settings.EMAIL_HOST_USER
@@ -59,6 +58,12 @@ def contact_view(request):
         form.save()
         form = ContactForm()
     context['form'] = form
+    return context
+
+def contact_view(request):
+    context = {"self": "contact"}.copy()
+    context.update(bases())
+    context.update(form_view(request))
     return render(request, "contact.html", context)
 
 
@@ -68,13 +73,15 @@ def bases():
     link_query = SeoLink.objects.all()
     news = New.objects.all()
     page = Page.objects.all()
+    seo = SeoLink.objects.all()
     user = UserInfo.objects.first()
-    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'user': user, 'pages': page}
+    return {"gallery": gallery, "services": services, "seoLinks": link_query, 'news': news, 'seo': seo, 'user': user, 'pages': page}
 
 
 def index(request):
     context = {"self": "index"}.copy()
     context.update(bases())
+    context.update(form_view(request))
     return render(request, "index.html", context=context)
 
 
@@ -82,6 +89,7 @@ def service_view(request, service_url):
     queryset = Service.objects.get(service_url=service_url)
     context = {"service": queryset}.copy()
     context.update(bases())
+    context.update(form_view(request))
     if not queryset:
         raise Http404
     return render(request, "service.html", context=context)
@@ -90,24 +98,30 @@ def service_view(request, service_url):
 def services(request):
     context = {"self": "services"}.copy()
     context.update(bases())
+    context.update(form_view(request))
     return render(request, "services.html", context=context)
 
 
 def news(request):
     context = {"self": "news"}.copy()
     context.update(bases())
+    context.update(form_view(request))
     return render(request, "news.html", context=context)
 
 
-def news(request):
-    context = {"self": "news"}.copy()
+def new(request, post_url):
+    context = {"self": "new"}.copy()
+    query = New.objects.get(post_url=post_url)
+    context = {"new":query}
     context.update(bases())
-    return render(request, "news.html", context=context)
+    context.update(form_view(request))
+    return render(request, "new.html", context=context)
 
 
 def gallery_view(request):
     context = {"self": "gallery"}.copy()
     context.update(bases())
+    context.update(form_view(request))
     return render(request, "gallery.html", context=context)
 
 
@@ -115,6 +129,7 @@ def seoLinks_view(request, link):
     link_query = SeoLink.objects.get(url=link)
     context = {"link": link_query}.copy()
     context.update(bases())
+    context.update(form_view(request))
     if not link_query:
         raise Http404
     return render(request, "seo.html", context=context)
@@ -160,6 +175,7 @@ def page_view(request, page_url):
         })
     context = {"self": queryset, "data": data}.copy()
     context.update(bases())
+    context.update(form_view(request))
     template = "page.html"
     for file in os.listdir(os.path.join(settings.BASE_DIR / __package__ / "templates")):
         if file == f"page-{queryset.id}.html":
